@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'framework',
+    # 'framework', #name for DRF
     'app_users.apps.AppUsersConfig',
 ]
 
