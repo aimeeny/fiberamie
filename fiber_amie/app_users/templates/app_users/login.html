@@ -1,0 +1,25 @@
+{% extends 'app_users/base_layout.html' %}
+{% load static %}
+{% block content %}
+
+<!--LOGIN -------------------------  -->
+
+
+<div class="login" id="app">
+    <p>HI, it worked!</p>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+
+        },
+    }
+    const app = Vue.createApp(App)
+    app.mount('#app')
+</script>
+{% endblock %}

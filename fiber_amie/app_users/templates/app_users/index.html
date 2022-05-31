@@ -1,16 +1,33 @@
 {% extends 'app_users/base_layout.html' %}
+{% load render_bundle from webpack_loader %}
 {% load static %}
 {% block content %}
+
+<!-- LANDING -------------------------  -->
+
     <!-- <img src="app_users/text-logo.png"> -->
-<div class="landing">
+<div class="landing" id="app">
     <h1 class="title">fiber<span id="color">amie</span></h1>
     <h4>your craft companion</h4>
-    <p>A mobile-friendly, accessible fiber
-        companion app - keep track of your yarn stash,
-        crochet hooks & knitting needles, and the projects
-        you're working on - easily, and on the go!</p>
-    <input type="submit" class="button" value="Sign Up">
+    <p>A mobile-friendly, accessible fiber companion app - keep track of your yarn stash, crochet hooks & knitting needles, and the projects you're working on - easily, and on the go!</p>
+    <a class="button" href="sign_up/">Sign Up</a>
     
-    <input type="submit" class="button" value="Log In">
+    <a class="button" href="login/">Log In</a>
+    {% render_bundle 'app' %}
 </div>
+<script>
+    const App = {
+        data() {
+            return {
+                
+            }
+        },
+        delimiters: ['[[',']]'],
+        methods: {
+            
+        },
+    }
+    const app = Vue.createApp(App)
+    app.mount('#app')
+</script>
 {% endblock %}

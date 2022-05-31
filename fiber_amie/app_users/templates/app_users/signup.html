@@ -1,0 +1,26 @@
+{% extends 'app_users/base_layout.html' %}
+{% load static %}
+{% block content %}
+
+<!-- SIGN UP -------------------------  -->
+
+
+<div class="signup" id="app">
+    {% csrf_token %}
+    <p>HI, it worked!</p>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+
+        },
+    }
+    const app = Vue.createApp(App)
+    app.mount('#app')
+</script>
+{% endblock %}

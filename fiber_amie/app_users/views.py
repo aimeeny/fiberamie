@@ -27,7 +27,7 @@ def sign_up_request(request):
             return redirect('app_users:home') # sends user back to home page
         messages.error(request, 'Oops! Something went wrong.')
     form = NewUserForm()
-    return render(request=request, template_name='app_users/sign_up.html', context={'sign_up_form':form})
+    return render(request=request, template_name='app_users/signup.html', context={'sign_up_form':form})
 
 # log in 
 def login_request(request):
