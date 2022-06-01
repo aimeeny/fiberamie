@@ -1,26 +1,21 @@
 {% extends 'app_users/base_layout.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!-- SIGN UP -------------------------  -->
-
+<link href="{% static 'base.css' %}" rel="stylesheet">
 
 <div class="signup" id="app">
     {% csrf_token %}
-    <p>HI, it worked!</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ sign_up_form|crispy }}
+        <button type="submit" v-model="signUp">Sign Up</button>
+    </form>
+    
+    <a href="#">Go back</a>
 </div>
-<script>
-    const App = {
-        data() {
-            return {
-
-            }
-        },
-        methods: {
-
-        },
-    }
-    const app = Vue.createApp(App)
-    app.mount('#app')
-</script>
+<script src="{% static 'script.js' %}"></script>
 {% endblock %}

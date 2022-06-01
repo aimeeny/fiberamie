@@ -1,13 +1,49 @@
 {% extends 'app_users/base_layout.html' %}
-
+{% load static %}
 
 <!-- HOME PAGE ------------------------------- -->
 {% block content %}
+<link href="{% static 'base.css' %}" rel="stylesheet">
 <div class="home" id="app">
-    <p>hi</p>
+    <div class="topnav">
+        <a href="#home">
+            <img src="{% static 'home.svg' %}">
+        </a>
+    </div>
+    <h1>fiberamie
+    </h1>
+
+
+
+
+    <div class="navbar">
+        <div class="icon">
+            <a href="#home">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="#search">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="#projects">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="#stash">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="#storage">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+
+    </div>
 </div>
-
+<script src="{% static 'script.js' %}"></script>
 {% endblock %}
-<script>
-
-</script>

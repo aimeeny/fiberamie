@@ -1,23 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiber Amie</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-</head>
-<style src="{% static 'base.css' %}"></style>
-<!-- <style>
 @media screen and (min-width: 360px) {
     .landing {
         display: flex;
@@ -62,18 +44,38 @@
         border: 1px solid #896283;
         border-radius: 30px;
     }
+
+    
+    .home > h1 {
+        font-family: 'Berkshire Swash', cursive;
+        font-size: 5rem;
+        color: #896283;
+        text-shadow: 1px 1px #383838;
+        margin-bottom: -2rem;
+        margin-top: -.5rem;
+    }
+
+    .navbar {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        z-index: 200;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: #F4E2EA;
+        border-top: 1px solid #fff;
+    }
+    img {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+    body {
+        max-height: 100vw;
+        /* padding-bottom: 4rem; */
+        background-color: #F4E2EA;
+    }
 }
     
-</style> -->
-{% block content %}
-<style src="{% static 'base.css' %}"></style>
-<body style="background-color:#F4E2EA;">
-    <div class="wrapper" id="app">
-        
-        
-    </div>
-    <script src="{% static 'script.js' %}"></script>
-    {% endblock %}
-</body>
-
-</html>

@@ -46,7 +46,7 @@ def login_request(request):
         else: 
             messages.error(request, 'Please double check your username or password.')
     form = AuthenticationForm()
-    return render(request=request, template_name='app_users/login.html')
+    return render(request=request, template_name='app_users/login.html', context={'login_form':form})
 
 # log out 
 def logout_request(request):

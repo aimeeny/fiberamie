@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', #name for DRF
     'app_users.apps.AppUsersConfig',
-    'webpack_loader',
+    'app_data.apps.AppDataConfig',
+    'api.apps.ApiConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -61,20 +63,20 @@ MIDDLEWARE = [
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
-WEBPACK_LOADER = {
-  'DEFAULT': {
-  'CACHE': DEBUG,
-  'BUNDLE_DIR_NAME': '/bundles/',
-  'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
-  }
-}
+# WEBPACK_LOADER = {
+#   'DEFAULT': {
+#   'CACHE': DEBUG,
+#   'BUNDLE_DIR_NAME': '/bundles/',
+#   'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
+#   }
+# }
 
 ROOT_URLCONF = 'fiber_amie.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR,],
+        # 'DIRS': [TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,7 +138,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+if DEBUG:
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+else:
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

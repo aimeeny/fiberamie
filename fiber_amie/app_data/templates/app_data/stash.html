@@ -8,10 +8,9 @@
 
 <div class="login" id="app">
     <h1>Log In</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ login_form|crispy }}
-        <button type="submit" v-model="logIn">Log In</button>
+    <form>
+        {% csrf token %}
+        {% add_yarn_form|crispy %}
     </form>
 </div>
 <script src="{% static 'script.js' %}"></script>

@@ -16,9 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework import routers
+from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_users.urls')),
-    path('', TemplateView.as_view(template_name='index.html'), name='app')
+    # path('', include('app_data.urls')),
+    path('', include('api.urls')),
+    path('', TemplateView.as_view(template_name='index.html'), name='app'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+
+# router = routers.DefaultRouter()
+# router.register(r'yarn', views.AddYarnViewSet)
+# router.register(r'hooks', views.AddHookViewSet)
+# router.register(r'needles', views.AddNeedleViewSet)
+
+# urlpatterns = [
+#     path('', include(router.urls)),
+#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+# ]
