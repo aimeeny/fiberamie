@@ -3,15 +3,63 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!--LOGIN -------------------------  -->
+<!--STASH -------------------------  -->
 <link href="{% static 'base.css' %}" rel="stylesheet">
 
-<div class="login" id="app">
-    <h1>Log In</h1>
-    <form>
-        {% csrf token %}
-        {% add_yarn_form|crispy %}
+<div class="stash" id="app">
+   
+        <div class="topnav">
+            <a href="/settings">
+                <img src="{% static 'settings.svg' %}">
+            </a>
+            <h1><i>yarn stash</i></h1>
+            <img src="{% static 'fiber-amie-icon.png' %}">
+    
+        </div>
+    
+
+    <h4><i>Add more yarn</i></h4>
+    <form method="POST">
+        
+        {{ add_yarn_form|crispy }}
+        <button type="submit">Add</button>
     </form>
+
+    <h4><i>Your current stash</i></h4>
+    <div class="yarn-list" v-for="yarn in yarns">
+           
+          <p>[[ yarn.name ]]</p>
+    </div>
+    
+
+    <div class="navbar">
+        <div class="icon">
+            <a href="/home">
+                <img src="{% static 'home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/search">
+                <img src="{% static 'search.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/projects">
+                <img src="{% static 'projects.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/stash">
+                <img src="{% static 'stash.png' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/storage">
+                <img src="{% static 'needles.png' %}">
+            </a>
+        </div>
+
+    </div>
 </div>
 <script src="{% static 'script.js' %}"></script>
 {% endblock %}

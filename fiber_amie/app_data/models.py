@@ -2,13 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class AddYarnDetailed(models.Model):
-    brand = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
-    fiber_type = models.CharField(max_length=50)
-    colorway = models.CharField(max_length=50)
-    yardage = models.PositiveIntegerField()
-    weight = models.PositiveIntegerField()
+    fiber_type = models.CharField(max_length=50, blank=True)
+    colorway = models.CharField(max_length=50, blank=True)
+    yardage = models.PositiveIntegerField(blank=True)
+    yarn_weight = models.CharField(max_length=20, blank=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    notes = models.CharField(max_length=50, blank=True)
     def __str__(self):
         return f'{self.username}_{self.brand}_{self.name}'
     class Meta:

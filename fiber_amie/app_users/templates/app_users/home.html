@@ -6,40 +6,47 @@
 <link href="{% static 'base.css' %}" rel="stylesheet">
 <div class="home" id="app">
     <div class="topnav">
-        <a href="#home">
-            <img src="{% static 'home.svg' %}">
+        <a href="/settings">
+            <img src="{% static 'settings.svg' %}">
         </a>
+        <img src="{% static 'fiber-amie-icon.png' %}">
+
+
     </div>
-    <h1>fiberamie
-    </h1>
+    {% if user.is_authenticated %}
+    <div class="home-body">
+        <p>Hi, {{ user.username }}</p>
+        <p>Your recent projects...</p>
+        <img src="{% static 'cowl.jpg' %}">
+    </div>
 
 
 
-
+    {% endif %}
     <div class="navbar">
         <div class="icon">
-            <a href="#home">
+            <a href="/home">
                 <img src="{% static 'home.svg' %}">
             </a>
         </div>
         <div class="icon">
-            <a href="#search">
-                <img src="{% static 'home.svg' %}">
+            <a href="/search">
+                <img src="{% static 'search.svg' %}">
             </a>
         </div>
         <div class="icon">
-            <a href="#projects">
-                <img src="{% static 'home.svg' %}">
+            <a href="/projects">
+                <img src="{% static 'projects.svg' %}">
             </a>
         </div>
         <div class="icon">
-            <a href="#stash">
-                <img src="{% static 'home.svg' %}">
+            <a href="/stash">
+                <img src="{% static 'stash.png' %}">
             </a>
         </div>
         <div class="icon">
-            <a href="#storage">
-                <img src="{% static 'home.svg' %}">
+            <a href="/storage">
+                <img src="{% static 'needles.png' %}">
             </a>
         </div>
 

@@ -5,15 +5,21 @@ from django.contrib.auth.models import User
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):
     class Meta: 
         model = AddYarnDetailed
-        fields = ['brand', 'name', 'fiber_type', 'colorway', 'yardage', 'weight', 'username']
+        fields = ['name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'notes', 'username']
 
 class AddHookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AddHook
-        fields = ['size', 'brand',]
+        fields = ['size', 'brand', 'username']
 
 class AddNeedleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AddNeedle
         fields = ['size', 'length', 'brand', 'username']
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        
 

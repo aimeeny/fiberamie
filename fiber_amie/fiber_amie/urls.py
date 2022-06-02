@@ -23,7 +23,7 @@ from api import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_users.urls')),
-    # path('', include('app_data.urls')),
+    path('', include('app_data.urls')),
     path('', include('api.urls')),
     path('', TemplateView.as_view(template_name='index.html'), name='app'),
 ]

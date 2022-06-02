@@ -10,7 +10,30 @@ from api.serializers import AddYarnDetailedSerializer
 from .models import AddYarnDetailed, AddHook, AddNeedle
 from .forms import AddYarnForm, AddHookForm, AddNeedleForm
 
-# @csrf_exempt
+
+@ login_required
+def stash(request):
+    return render(request, 'app_data/stash.html')
+
+
+@csrf_exempt
+@ login_required
+def display_stash(request):
+    stash_db = AddYarnDetailed.objects.all()
+    stash = []
+    for stash in stash_db:
+        stash.append({
+            'brand': stash.brand,
+            'name': stash.name,
+            'fiber_type': stash.fiber_type,
+            'colorway': stash.colorway,
+            'yardage': stash.yardage,
+            'weight': stash.weight,
+            'username': stash.username
+        })
+    return JsonResponse(data={'stash':stash})
+
+@csrf_exempt
 @ login_required
 def add_yarn(request):
     user = request.user
@@ -21,7 +44,7 @@ def add_yarn(request):
             data.username = user
             data.save()
             messages.success(request, 'Successfully added.')
-            return redirect('app_users:stash')
+            return redirect('app_data:stash')
     else:
         form = AddYarnForm()
     return render(request, 'app_data/stash.html', {'add_yarn_form':form})

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from rest_framework import authtoken
 import environ
 import os
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', #name for DRF
+    'rest_framework.authtoken',
     'app_users.apps.AppUsersConfig',
     'app_data.apps.AppDataConfig',
     'api.apps.ApiConfig',
@@ -63,13 +65,6 @@ MIDDLEWARE = [
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
-# WEBPACK_LOADER = {
-#   'DEFAULT': {
-#   'CACHE': DEBUG,
-#   'BUNDLE_DIR_NAME': '/bundles/',
-#   'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
-#   }
-# }
 
 ROOT_URLCONF = 'fiber_amie.urls'
 
@@ -101,6 +96,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         'USER': env('DATABASE_USER'),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ( 
+        'rest_framework.authentication.SessionAuthentication',
+    ),
 }
 
 
