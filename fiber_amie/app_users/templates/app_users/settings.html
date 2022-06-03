@@ -3,38 +3,28 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!--STASH -------------------------  -->
+<!--SETTINGS -------------------------  -->
 <link href="{% static 'base.css' %}" rel="stylesheet">
 
-<div class="stash" id="app">
-   
-        <div class="topnav">
-            <a href="/settings">
-                <img src="{% static 'settings.svg' %}">
-            </a>
-            <h1><i>yarn stash</i></h1>
-            <img src="{% static 'fiber-amie-icon.png' %}">
-    
-        </div>
-    
+<div class="settings" id="app">
+    <h1>Settings</h1>
 
-    <h4><i>Add more yarn</i></h4>
-    <form method="POST" enctype="multipart/form-data">
-        {{ add_yarn_form|crispy }}
-        <button type="submit">Add</button>
-    </form>
-    <!-- {% if img_obj %}
-    <p>Success!</p>
-    <img src="{{ img_obj.image.url }}">
-    {% endif %} -->
+    <!-- do click events to toggle each section -->
 
-    <h4><i>Your current stash</i></h4>
-    <div class="yarn-list" v-for="yarn, index in yarns">
-           
-          <p>[[ yarn.name ]]</p>
-          <button @click="deleteYarn(index)" type="button">Delete</button>
+    <div class="settings-menu">
+        <a href="preferences/" id="preferences">Preferences</a>
+        <a href="access-settings/">Accessibility</a>
+        <a href="logout/">Log Out</a>
     </div>
-    
+
+    <div class="settings-container">
+        <h4>Color Theme</h4>
+        <h4>Color Theme</h4>
+        <h4>Color Theme</h4>
+        <h4>Color Theme</h4>
+        <h4>Color Theme</h4>
+    </div>
+
 
     <div class="navbar">
         <div class="icon">
@@ -58,7 +48,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="/storage">
+            <a href="/tools">
                 <img src="{% static 'needles.png' %}">
             </a>
         </div>

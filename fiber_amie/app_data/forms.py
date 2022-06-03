@@ -9,9 +9,10 @@ class AddYarnForm(forms.ModelForm):
     colorway = forms.CharField(label='',widget=forms.TextInput(attrs={"placeholder":"Colorway", "class":"django-form"}))
     yardage = forms.CharField(label='',widget=forms.NumberInput(attrs={"placeholder":"Yardage", "class":"django-form"}))
     yarn_weight = forms.CharField(label='',widget=forms.TextInput(attrs={"placeholder":"Yarn Weight/Category", "class":"django-form"}))
+    # image = forms.CharField(label='',widget=forms.ImageField(attrs={"placeholder":"Upload Image", "class":"django-form"}))
     class Meta: 
         model = AddYarnDetailed
-        fields = ('name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'notes')
+        fields = ('name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'image', 'notes')
     def save(self, commit=True):
         add_yarn = super(AddYarnForm, self).save(commit=False)
         if commit:

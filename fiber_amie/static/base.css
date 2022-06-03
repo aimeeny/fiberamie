@@ -51,10 +51,10 @@
         text-decoration: none;
         transition-duration: .4s;
     }
-    .landing > a:hover {
+    /* .landing > a:hover {
         background-color: #644760;
         color: #fff;
-    }
+    } */
     #logo {
         width: 100%;
         height: 100%;
@@ -65,16 +65,16 @@
         text-decoration: none;
     }
     a:hover {
-        color:#383838;
-        box-shadow: 2px 2px #383838;
+        color:#000000;
+        
 
     }
     
-    .stash h1 {
+    h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         color: #896283;
-        /* text-shadow: 1px 1px #383838; */
+        text-shadow: 1px 1px #383838;
         margin-bottom: .25rem;
         margin-top: -.5rem;
         text-align: center;
@@ -133,8 +133,9 @@
         border-top: 1px solid #fff;
     }
     
-    .home-body {
-        margin-top: 4.25rem;
+    .home {
+        /* margin-top: 4.25rem; */
+        margin: 0;
     }
 
 
@@ -144,5 +145,124 @@
         /* padding-bottom: 4rem; */
         background-color: #F4E2EA;
     }
-}
+
+
+    /* SIDE NAV  */
+    div.wrapper {
+        display: flex;
+        height: 80vh;
+    }
+    .home-body {
+        flex-grow: 1;
+
+    }
+    .sidenav-toggle {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: #896283;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        cursor: pointer;
+
+    }
+    .sidenav-toggle:hover {
+        background: #644760;
+    }
+    .hamburger-close {
+        display: none;
+    }
+    .side-nav {
+        display: none;
+        width: 5rem;
+        flex-shrink: 0;
+        color: #fff;
+        background: #896283;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .35)
+    }
+    .side-nav-open .side-nav {
+        display: initial;
+    }
+    .side-nav-open .hamburger-open {
+        display: none;
+    }
+    .side-nav-open .hamburger-close {
+        display: initial;
+    }
+
+    /* LOG IN  */
+    .login h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #896283;
+        text-shadow: 1px 1px #383838;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 800;
+    }
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .login-form-container {
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+    .login label {
+        font-family: 'Raleway', sans-serif;
+        margin-top: 2rem;
+    }
+    .login button {
+        background-color: #896283;
+        color: #fff;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-right: auto;
+        margin-left: auto;
+        margin: .75rem;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border: 1px solid #896283;
+        border-radius: 30px;
+        text-decoration: none;
+        transition-duration: .4s;
+    }
     
+    /* SETTINGS  */
+
+    .settings a {
+        font-family: 'Raleway', sans-serif;
+        text-decoration: none;
+        color: #383838;
+        font-weight: 500;
+        padding: .5rem;
+    }
+    .settings h4 {
+        font-family: 'Raleway', sans-serif;
+    }
+    .settings-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #preferences {
+        background: #fff;
+    }
+    .settings-container {
+        background: #fff;
+        height: 70vh;
+        padding: 1rem;
+    }
+
+
+ 
+}

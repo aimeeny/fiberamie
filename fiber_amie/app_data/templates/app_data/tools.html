@@ -3,37 +3,39 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!--STASH -------------------------  -->
+<!--TOOLS -------------------------  -->
 <link href="{% static 'base.css' %}" rel="stylesheet">
 
-<div class="stash" id="app">
+<div class="tools" id="app">
    
         <div class="topnav">
             <a href="/settings">
                 <img src="{% static 'settings.svg' %}">
             </a>
-            <h1><i>yarn stash</i></h1>
+            <h1><i>tools</i></h1>
             <img src="{% static 'fiber-amie-icon.png' %}">
     
         </div>
-    
+        <h4><i>Add more needles</i></h4>
+        {% csrf_token %}
+        <form @submit.prevent="addNeedles">
+            <label for="size">Needle size (US)</label>
+            <input v-model="size" type="size" id="size"><br>
+            <label for="length">Needle length (inches)</label>
+            <input v-model="length" type="length" id="length"><br>
+            <label for="brand">Brand</label>
+            <input v-model="brand" type="brand" id="brand">
+            <br>
+            <input type="submit" value="Add Needle">
+        </form>
 
-    <h4><i>Add more yarn</i></h4>
-    <form method="POST" enctype="multipart/form-data">
-        {{ add_yarn_form|crispy }}
-        <button type="submit">Add</button>
-    </form>
-    <!-- {% if img_obj %}
-    <p>Success!</p>
-    <img src="{{ img_obj.image.url }}">
-    {% endif %} -->
+        <h4><i>Your needles</i></h4>
+        <div class="tool-list" v-for="needle, index in needles">
+            {% csrf_token %}
+              <p>[[ needle.size ]], [[ needle.brand ]]</p>
+              <button @click="deleteNeedles(index)" type="button">Delete</button>
+        </div>
 
-    <h4><i>Your current stash</i></h4>
-    <div class="yarn-list" v-for="yarn, index in yarns">
-           
-          <p>[[ yarn.name ]]</p>
-          <button @click="deleteYarn(index)" type="button">Delete</button>
-    </div>
     
 
     <div class="navbar">
@@ -58,7 +60,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="/storage">
+            <a href="/tools">
                 <img src="{% static 'needles.png' %}">
             </a>
         </div>

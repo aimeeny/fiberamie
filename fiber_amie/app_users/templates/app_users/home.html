@@ -4,15 +4,31 @@
 <!-- HOME PAGE ------------------------------- -->
 {% block content %}
 <link href="{% static 'base.css' %}" rel="stylesheet">
+
+
 <div class="home" id="app">
+
+    <!-- <div class="wrapper side-nav-open">
+        <div class="home-body">
+            <p> HELLO</p>
+        </div>
+        <button class="sidenav-toggle" type="button">
+            <span class="hamburger-open">&#9776;</span>
+            <span class="hamburger-close">&#10006;</span>
+        </button>
+        <div class="side-nav">
+            <a href="/logout">Log Out</a>
+        </div>
+    </div> -->
+
+
     <div class="topnav">
         <a href="/settings">
             <img src="{% static 'settings.svg' %}">
         </a>
         <img src="{% static 'fiber-amie-icon.png' %}">
-
-
     </div>
+
     {% if user.is_authenticated %}
     <div class="home-body">
         <p>Hi, {{ user.username }}</p>
@@ -45,12 +61,17 @@
             </a>
         </div>
         <div class="icon">
-            <a href="/storage">
+            <a href="/tools">
                 <img src="{% static 'needles.png' %}">
             </a>
         </div>
 
     </div>
 </div>
+<!-- <script>
+    document.querySelector(".sidenav-toggle").addEventListener("click", () => {
+        document.querySelector(".wrapper").classList.toggle("side-nav-open");
+    })
+</script> -->
 <script src="{% static 'script.js' %}"></script>
 {% endblock %}

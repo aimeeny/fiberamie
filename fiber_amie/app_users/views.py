@@ -16,6 +16,10 @@ def home(request):
     ...
     return render(request, 'app_users/home.html')
 
+def settings(request):
+    ...
+    return render(request, 'app_users/settings.html')
+
 # sign up 
 def sign_up_request(request):
     if request.method == "POST":

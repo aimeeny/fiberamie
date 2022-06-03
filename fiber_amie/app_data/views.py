@@ -15,6 +15,10 @@ from .forms import AddYarnForm, AddHookForm, AddNeedleForm
 def stash(request):
     return render(request, 'app_data/stash.html')
 
+@ login_required
+def tools(request):
+    return render(request, 'app_data/tools.html')
+
 
 @csrf_exempt
 @ login_required
@@ -29,7 +33,8 @@ def display_stash(request):
             'colorway': stash.colorway,
             'yardage': stash.yardage,
             'weight': stash.weight,
-            'username': stash.username
+            'username': stash.username,
+            'image': stash.image,
         })
     return JsonResponse(data={'stash':stash})
 
@@ -43,6 +48,7 @@ def add_yarn(request):
             data = form.save(commit=False)
             data.username = user
             data.save()
+            # img_obj = data.instance
             messages.success(request, 'Successfully added.')
             return redirect('app_data:stash')
     else:

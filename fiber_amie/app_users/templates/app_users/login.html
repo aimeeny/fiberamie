@@ -7,12 +7,25 @@
 <link href="{% static 'base.css' %}" rel="stylesheet">
 
 <div class="login" id="app">
-    <h1>Log In</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ login_form|crispy }}
-        <button type="submit" v-model="logIn">Log In</button>
-    </form>
+    <h1><i>Log In</i></h1>
+    <div class="login-form-container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="login-form">
+                <label>Username:</label><br>
+                {{ login_form.username }}
+            </div><br>
+            <div class="login-form">
+                <label>Password:</label><br>
+                {{ login_form.password }}
+            </div><br>
+
+            <!-- {{ login_form|crispy }} -->
+            
+            <button type="submit">Submit</button>
+            
+        </form>
+    </div>
 </div>
 <script src="{% static 'script.js' %}"></script>
 {% endblock %}
