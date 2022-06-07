@@ -4,7 +4,7 @@ from .models import AddYarnDetailed, AddHook, AddNeedle
 
 class AddYarnForm(forms.ModelForm):
     name = forms.CharField(label='',widget=forms.TextInput(attrs={"placeholder":"Name", "class":"django-form"}))
-    notes = forms.CharField(label='',widget=forms.Textarea(attrs={"placeholder":"Notes", "rows": "2", "class":"django-form"}))
+    # notes = forms.CharField(label='',widget=forms.Textarea(attrs={"placeholder":"Notes", "rows": "2", "class":"django-form"}))
     fiber_type = forms.CharField(label='',widget=forms.TextInput(attrs={"placeholder":"Fiber Type", "class":"django-form"}))
     colorway = forms.CharField(label='',widget=forms.TextInput(attrs={"placeholder":"Colorway", "class":"django-form"}))
     yardage = forms.CharField(label='',widget=forms.NumberInput(attrs={"placeholder":"Yardage", "class":"django-form"}))

@@ -8,7 +8,7 @@ class AddYarnDetailed(models.Model):
     yardage = models.PositiveIntegerField(blank=True)
     yarn_weight = models.CharField(max_length=20, blank=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    notes = models.CharField(max_length=50, blank=True)
+    notes = models.CharField(max_length=100, blank=True, null=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     def __str__(self):
         return f'{self.username}_{self.brand}_{self.name}'

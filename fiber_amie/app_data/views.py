@@ -22,21 +22,21 @@ def tools(request):
 
 @csrf_exempt
 @ login_required
-def display_stash(request):
-    stash_db = AddYarnDetailed.objects.all()
-    stash = []
-    for stash in stash_db:
-        stash.append({
-            'brand': stash.brand,
-            'name': stash.name,
-            'fiber_type': stash.fiber_type,
-            'colorway': stash.colorway,
-            'yardage': stash.yardage,
-            'weight': stash.weight,
-            'username': stash.username,
-            'image': stash.image,
-        })
-    return JsonResponse(data={'stash':stash})
+# def display_stash(request):
+#     stash_db = AddYarnDetailed.objects.all()
+#     stash = []
+#     for stash in stash_db:
+#         stash.append({
+#             'brand': stash.brand,
+#             'name': stash.name,
+#             'fiber_type': stash.fiber_type,
+#             'colorway': stash.colorway,
+#             'yardage': stash.yardage,
+#             'weight': stash.weight,
+#             'username': stash.username,
+#             'image': stash.image,
+#         })
+#     return JsonResponse(data={'stash':stash})
 
 @csrf_exempt
 @ login_required

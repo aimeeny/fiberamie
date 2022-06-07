@@ -7,34 +7,55 @@
 <link href="{% static 'base.css' %}" rel="stylesheet">
 
 <div class="stash" id="app">
-   
-        <div class="topnav">
-            <a href="/settings">
-                <img src="{% static 'settings.svg' %}">
-            </a>
-            <h1><i>yarn stash</i></h1>
-            <img src="{% static 'fiber-amie-icon.png' %}">
-    
-        </div>
-    
+
+    <div class="topnav">
+        <a href="/settings">
+            <img src="{% static 'settings.svg' %}">
+        </a>
+        <h1><i>yarn stash</i></h1>
+        <img src="{% static 'fiber-amie-icon.png' %}">
+
+    </div>
+
 
     <h4><i>Add more yarn</i></h4>
-    <form method="POST" enctype="multipart/form-data">
+    <!-- <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         {{ add_yarn_form|crispy }}
         <button type="submit">Add</button>
-    </form>
-    <!-- {% if img_obj %}
-    <p>Success!</p>
-    <img src="{{ img_obj.image.url }}">
-    {% endif %} -->
+    </form> -->
+        {% csrf_token %}
+        <form @submit.prevent="addYarn">
+            <label for="name">Yarn Brand & Name</label>
+            <input v-model="name" type="name" id="name"><br>
+            <label for="fiber_type">Fiber Type</label>
+            <input v-model="fiber_type" type="fiber_type" id="fiber_type"><br>
+            <label for="colorway">Colorway</label>
+            <input v-model="colorway" type="colorway" id="colorway"><br>
+            <label for="skeins"># of Skeins</label>
+            <input v-model="skeins" type="skeins" id="skeins"><br>
+            <label for="yardage">Yardage</label>
+            <input v-model="yardage" type="yardage" id="yardage"><br>
+            <label for="weight">Yarn Weight/Category</label>
+            <input v-model="weight" type="weight" id="weight"><br>
+            <label for="image">Image</label>
+            <input @change="imageSelected" type="file" id="image"><br>
+            <label for="notes">Notes</label>
+            <input v-model="notes" type="notes" id="notes"><br>
+            <input type="submit" value="Add Yarn" @click="onUpload">
+        </form>
+   
 
     <h4><i>Your current stash</i></h4>
-    <div class="yarn-list" v-for="yarn, index in yarns">
-           
-          <p>[[ yarn.name ]]</p>
-          <button @click="deleteYarn(index)" type="button">Delete</button>
+    <div class="yarn-list">
+        <div class="yarn-card" v-for="yarn in yarns">
+
+            <p>[[ yarn.name ]]</p>
+            <img :src="[[ yarn.image ]]"><br>
+            <button @click="deleteYarn(yarn)" type="button">Delete</button>
+        </div>
     </div>
-    
+
 
     <div class="navbar">
         <div class="icon">
@@ -58,12 +79,12 @@
             </a>
         </div>
         <div class="icon">
-            <a href="/storage">
+            <a href="/tools">
                 <img src="{% static 'needles.png' %}">
             </a>
         </div>
 
     </div>
 </div>
-<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'stash.js' %}"></script>
 {% endblock %}
