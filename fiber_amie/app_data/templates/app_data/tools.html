@@ -32,7 +32,7 @@
         <h4><i>Your needles</i></h4>
         <div class="tool-list" v-for="needle, index in needles">
             {% csrf_token %}
-              <p>[[ needle.size ]], [[ needle.brand ]]</p>
+              <p>US [[ needle.size ]], [[ needle.brand ]]</p>
               <button @click="deleteNeedles(index)" type="button">Delete</button>
         </div>
 
@@ -67,5 +67,5 @@
 
     </div>
 </div>
-<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'tools.js' %}"></script>
 {% endblock %}

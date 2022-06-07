@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):
     class Meta: 
         model = AddYarnDetailed
-        fields = ['id', 'name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'image', 'notes', 'username']
+        fields = ['id', 'name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'skeins', 'image', 'notes', 'username']
 
 class AddHookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

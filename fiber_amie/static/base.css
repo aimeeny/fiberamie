@@ -2,7 +2,7 @@
 
 @media screen and (min-width: 360px) {
     
-    img {
+    .home img {
         width: 3.75rem;
         height: 3.75rem;
     }
@@ -83,7 +83,10 @@
 
     /* STASH PAGE  */
     .stash {
-        padding-bottom: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5rem;
     }
     .yarn-list {
         display:flex;
@@ -93,10 +96,17 @@
         justify-content: center;
     }
     .yarn-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 1rem;
-        border: 1px solid #fff;
+        border: 2px solid #fff;
         width: 40%;
-        /* center content within this box  */
+        border-radius: 15px;
+        background:#dfc8d2;
+        align-items: center;
+        text-align: center;
+       
     }
     .stash p {
         font-family: 'Raleway', sans-serif;
@@ -107,6 +117,42 @@
         font-family: 'Raleway', sans-serif;
         
     }
+    .stash .button {
+        margin-left: 4rem;
+        margin-right: 4rem; 
+        font-family: 'Raleway', sans-serif;
+        outline: none;
+        border: none;
+        background: #dfc8d2;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 25px;
+        box-shadow: 3px 3px #896283;
+        transition: .4s ease-out; 
+        border-radius: 15px;
+    }
+    .stash .button:hover {
+        background: #fbebf2;
+    }
+    .stash img {
+        height: 4rem;
+        width: 4rem;
+        /* object-fit: contain; */
+    }
+    .cover {
+        object-fit: cover;
+    }
+    #delete-yarn {
+        font-family: 'Raleway', sans-serif;
+        background: #896283;
+        color:#fff;
+        border: none;
+        padding: .5rem;
+        border-radius: 10px;
+        margin: .25rem;
+    }
+
+    /* HOME  */
     
     .home h1 {
         font-family: 'Berkshire Swash', cursive;
@@ -160,8 +206,10 @@
 
     body {
         max-height: 100vw;
-        /* padding-bottom: 4rem; */
-        background-color: #F4E2EA;
+        padding-bottom: 4rem;
+        /* background-color: #F4E2EA; */
+        background-image: linear-gradient(#f4e2ea, #dfc8d2);
+        background-attachment: fixed;
     }
 
 
@@ -281,6 +329,32 @@
         padding: 1rem;
     }
 
+    /* MODAL FORM  */
+    .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+    }
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 90%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        
+    }
+    
+    .modal input {
+        margin-bottom: .5rem;
+    }
 
  
 }

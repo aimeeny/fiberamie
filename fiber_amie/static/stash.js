@@ -16,13 +16,14 @@ const App = {
             weight: '',
             image: '',
             notes: '',
+            showModal: false,
             
         }
     },
     mounted() {
+        // this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu'
         this.getStash()
-        this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-        // this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu',
     },
     delimiters: ['[[',']]'],
     methods: {
@@ -55,7 +56,9 @@ const App = {
                     notes: this.notes,
                     image: this.image,
                 }
-            })
+            }).then(res => this.getStash())
+            .catch(error => console.log(error))
+            console.log(res.data)
         },
         deleteYarn (yarn) {
             // axios.delete({
@@ -81,10 +84,10 @@ const App = {
         onUpload() {
             const fd = new FormData()
             fd.append('image', this.selectedImage, this.selectedImage.name)
-            axios.post('http://127.0.0.1:8000/yarns/')
+            axios.post('http://127.0.0.1:8000/yarns/', fd)
             .then(res =>
                 console.log(res))
-        }
+        },
     },
 }
 const app = Vue.createApp(App)
