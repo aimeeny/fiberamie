@@ -6,8 +6,8 @@ const App = {
             result: '',
             yarns: [],
             yarn: '',
-            csrf_token: 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu',
-            axios: '',
+            // csrf_token: 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu',
+            csrf_token: '',
             name: '',
             fiber_type: '',
             colorway: '',
@@ -21,8 +21,8 @@ const App = {
         }
     },
     mounted() {
-        // this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-        this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu'
+        this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        // this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu'
         this.getStash()
     },
     delimiters: ['[[',']]'],
@@ -42,9 +42,12 @@ const App = {
             }).catch(error => console.log(error.message))
         },
         addYarn () {
+            console.log(this.image)
+            const form_data = new FormData() 
+            form_data.append('image', this.image, this.image.name)
             axios({
                 method: 'post',
-                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token },
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
                 url: 'http://127.0.0.1:8000/yarns/',
                 data: {
                     name: this.name,
@@ -61,12 +64,6 @@ const App = {
             console.log(res.data)
         },
         deleteYarn (yarn) {
-            // axios.delete({
-            //     url: `http://127.0.0.1:8000/yarns/${index}`,
-            //     headers: {'X-Requested-With': 'XMLHttpRequest',
-            //     'X-CSRFToken': this.csrf_token},
-            // }).catch(error => console.log(error))
-            // }
             axios.delete(`http://127.0.0.1:8000/yarns/${yarn.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
@@ -78,15 +75,8 @@ const App = {
                 console.log(res.yarns)
             }).catch(error => console.log(error.message))
         },
-        imageSelected(event) {
-            this.selectedImage = event.target.files[0]
-        },
-        onUpload() {
-            const fd = new FormData()
-            fd.append('image', this.selectedImage, this.selectedImage.name)
-            axios.post('http://127.0.0.1:8000/yarns/', fd)
-            .then(res =>
-                console.log(res))
+        imageSelected (event) {
+            this.image = event.target.files[0]
         },
     },
 }

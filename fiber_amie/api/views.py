@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from app_data.models import AddYarnDetailed, AddHook, AddNeedle
+from app_data.models import AddYarnDetailed, AddHook, AddNeedle, AddProject
 from rest_framework import viewsets, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNeedleSerializer, UserSerializer
+from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNeedleSerializer, UserSerializer, AddProjectSerializer
 from django.contrib.auth.models import User
 
 class AddYarnViewSet(viewsets.ModelViewSet):
@@ -28,3 +28,16 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+class AddProjectViewSet(viewsets.ModelViewSet):
+    queryset = AddProject.objects.all()
+    serializer_class = AddProjectSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+# class AddCrochetProjectViewSet(viewsets.ModelViewSet):
+#     queryset = AddCrochetProject.objects.all()
+#     serializer_class = AddCrochetProjectSerializer
+#     permission_classes = [permissions.IsAuthenticated]
+#     authentication_classes = (SessionAuthentication, BasicAuthentication)
+

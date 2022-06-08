@@ -4,68 +4,99 @@
 {% block content %}
 
 <!--TOOLS -------------------------  -->
-<link href="{% static 'base.css' %}" rel="stylesheet">
+<link href="{% static 'css/tools.css' %}" rel="stylesheet">
 
 <div class="tools" id="app">
-   
-        <div class="topnav">
-            <a href="/settings">
-                <img src="{% static 'settings.svg' %}">
-            </a>
-            <h1><i>tools</i></h1>
-            <img src="{% static 'fiber-amie-icon.png' %}">
-    
+
+    <div class="topnav">
+        <a href="/settings">
+            <img src="{% static 'images/settings.svg' %}">
+        </a>
+        <h1><i>tools</i></h1>
+        <img src="{% static 'images/fiber-amie-icon.png' %}">
+    </div>
+
+    <!-- ADD NEEDLES BUTTON AND FORM -->
+    <div class="tool-buttons">
+        <button class="button" @click="showModal = true">
+            Add Needles
+        </button>
+        <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+        <div class="modal" v-show="showModal">
+            <form @submit.prevent="addNeedles">
+                {% csrf_token %}
+                <label for="size">Needle size (US)</label>
+                <input v-model="size" type="size" id="size"><br>
+                <label for="length">Needle length (inches)</label>
+                <input v-model="length" type="length" id="length"><br>
+                <label for="brand">Brand</label>
+                <input v-model="brand" type="brand" id="brand"><br>
+            </form>
+            <button type="submit" class="button" @click="showModal = false; addNeedles()">
+                Submit
+            </button>
         </div>
-        <h4><i>Add more needles</i></h4>
+        <!-- ADD HOOKS BUTTON AND FORM -->
+        <button class="button" @click="showModal2 = true">
+            Add Hooks
+        </button>
+        <div class="modal-overlay" v-if="showModal2" @click="showModal2 = false"></div>
+        <div class="modal" v-show="showModal2">
+            <form @submit.prevent="addHooks">
+                {% csrf_token %}
+                <label for="size">Hook size (mm)</label>
+                <input v-model="size" type="size" id="size"><br>
+                <label for="brand">Brand</label>
+                <input v-model="brand" type="brand" id="brand"><br>
+            </form>
+            <button type="submit" class="button" @click="showModal2 = false; addHooks()">
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <h4><i>Your needles</i></h4>
+    <div class="tool-list" v-for="needle in needles">
         {% csrf_token %}
-        <form @submit.prevent="addNeedles">
-            <label for="size">Needle size (US)</label>
-            <input v-model="size" type="size" id="size"><br>
-            <label for="length">Needle length (inches)</label>
-            <input v-model="length" type="length" id="length"><br>
-            <label for="brand">Brand</label>
-            <input v-model="brand" type="brand" id="brand">
-            <br>
-            <input type="submit" value="Add Needle">
-        </form>
+        <p>US [[ needle.size ]], [[ needle.brand ]]</p>
+        <button @click="deleteNeedles(needle)" type="button">Delete</button>
+    </div>
+    <h4><i>Your hooks</i></h4>
+    <div class="tool-list" v-for="hook in hooks">
+        {% csrf_token %}
+        <p>[[ hook.size ]] mm, [[ hook.brand ]]</p>
+        <button @click="deleteHooks(hook)" type="button">Delete</button>
+    </div>
 
-        <h4><i>Your needles</i></h4>
-        <div class="tool-list" v-for="needle, index in needles">
-            {% csrf_token %}
-              <p>US [[ needle.size ]], [[ needle.brand ]]</p>
-              <button @click="deleteNeedles(index)" type="button">Delete</button>
-        </div>
-
-    
 
     <div class="navbar">
         <div class="icon">
             <a href="/home">
-                <img src="{% static 'home.svg' %}">
+                <img src="{% static 'images/home.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/search">
-                <img src="{% static 'search.svg' %}">
+                <img src="{% static 'images/search.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/projects">
-                <img src="{% static 'projects.svg' %}">
+                <img src="{% static 'images/projects.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/stash">
-                <img src="{% static 'stash.png' %}">
+                <img src="{% static 'images/stash.png' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
-                <img src="{% static 'needles.png' %}">
+                <img src="{% static 'images/needles.png' %}">
             </a>
         </div>
 
     </div>
 </div>
-<script src="{% static 'tools.js' %}"></script>
+<script src="{% static 'js/tools.js' %}"></script>
 {% endblock %}

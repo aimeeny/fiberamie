@@ -7,6 +7,8 @@ router.register(r'yarns', views.AddYarnViewSet)
 router.register(r'hooks', views.AddHookViewSet)
 router.register(r'needles', views.AddNeedleViewSet)
 router.register(r'users', views.UserViewSet)
+router.register(r'projects_drf', views.AddProjectViewSet)
+
 
 
 urlpatterns = [

@@ -1,0 +1,99 @@
+{% extends 'app_users/base_layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!--PROJECTS -------------------------  -->
+<link href="{% static 'css/projects.css' %}" rel="stylesheet">
+
+<div class="projects" id="app">
+    <div class="topnav">
+        <a href="/settings">
+            <img src="{% static 'images/settings.svg' %}">
+        </a>
+        <h1><i>projects</i></h1>
+        <img src="{% static 'images/fiber-amie-icon.png' %}">
+    </div>
+
+    <!-- ADD PROJECT BUTTON AND FORM  -->
+    <button class="button" @click="showModal = true">
+        Add Project
+    </button>
+        <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+        <div class="modal" v-show="showModal">
+            {% csrf_token %}
+            <form @submit.prevent="addProject">
+                <label for="pattern_name">Pattern name</label>
+                <input v-model="pattern_name" type="pattern_name" id="pattern_name"><br>
+                <label for="designer">Designer</label>
+                <input v-model="designer" type="designer" id="designer"><br>
+                <label for="needles">Needle Size (if knit)</label>
+                <input v-model="needles" type="needles" id="needles"><br>
+                <label for="hook">Hook Size (if crochet)</label>
+                <input v-model="hook" type="hook" id="hook"><br>
+                <label for="gauge">Gauge</label>
+                <input v-model="gauge" type="gauge" id="gauge"><br>
+                <label for="yarn">Yarn Brand & Name</label>
+                <input v-model="yarn" type="yarn" id="yarn"><br>
+                <label for="colorway">Colorway</label>
+                <input v-model="colorway" type="colorway" id="colorway"><br>
+                <label for="total_yardage">Total yardage used</label>
+                <input v-model="total_yardage" type="total_yardage" id="total_yardage"><br>
+                <label for="notes">Project notes</label>
+                <input v-model="notes" type="textarea" id="notes"><br>
+                <label for="image">Image</label><br>
+                <input @change="imageSelected" type="file" id="image"><br>
+            </form>
+            <button type="submit" class="button" @click="showModal = false; addProject()">
+                Submit
+            </button>
+        </div>
+   
+
+    <!-- STASH LIST  -->
+    <h4><i>Your projects</i></h4>
+    <div class="project-list">
+        <div class="project-card" v-for="project in projects">
+            <p>[[ project.pattern_name ]] by [[ project.designer ]]
+                <br>
+                "[[ project.colorway ]]"
+            </p>
+            <div class="project-image">
+                <img class="cover" :src="[[ project.image ]]"><br>
+            </div>
+            <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAV  -->
+    <div class="navbar">
+        <div class="icon">
+            <a href="/home">
+                <img src="{% static 'images/home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/search">
+                <img src="{% static 'images/search.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/projects">
+                <img src="{% static 'images/projects.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/stash">
+                <img src="{% static 'images/stash.png' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/tools">
+                <img src="{% static 'images/needles.png' %}">
+            </a>
+        </div>
+
+    </div>
+</div>
+<script src="{% static 'js/projects.js' %}"></script>
+{% endblock %}

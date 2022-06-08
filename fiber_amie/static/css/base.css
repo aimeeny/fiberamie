@@ -81,77 +81,7 @@
         font-weight: 800;
     }
 
-    /* STASH PAGE  */
-    .stash {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 5rem;
-    }
-    .yarn-list {
-        display:flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        overflow: scroll;
-        justify-content: center;
-    }
-    .yarn-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem;
-        border: 2px solid #fff;
-        width: 40%;
-        border-radius: 15px;
-        background:#dfc8d2;
-        align-items: center;
-        text-align: center;
-       
-    }
-    .stash p {
-        font-family: 'Raleway', sans-serif;
-        font-size: .9rem;
-        text-align: left;
-    }
-    .stash h4 {
-        font-family: 'Raleway', sans-serif;
-        
-    }
-    .stash .button {
-        margin-left: 4rem;
-        margin-right: 4rem; 
-        font-family: 'Raleway', sans-serif;
-        outline: none;
-        border: none;
-        background: #dfc8d2;
-        cursor: pointer;
-        display: inline-block;
-        padding: 15px 25px;
-        box-shadow: 3px 3px #896283;
-        transition: .4s ease-out; 
-        border-radius: 15px;
-    }
-    .stash .button:hover {
-        background: #fbebf2;
-    }
-    .stash img {
-        height: 4rem;
-        width: 4rem;
-        /* object-fit: contain; */
-    }
-    .cover {
-        object-fit: cover;
-    }
-    #delete-yarn {
-        font-family: 'Raleway', sans-serif;
-        background: #896283;
-        color:#fff;
-        border: none;
-        padding: .5rem;
-        border-radius: 10px;
-        margin: .25rem;
-    }
-
+    
     /* HOME  */
     
     .home h1 {
@@ -349,6 +279,7 @@
         border-radius: 15px;
         padding: 1rem;
         font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
         
     }
     

@@ -19,6 +19,10 @@ def stash(request):
 def tools(request):
     return render(request, 'app_data/tools.html')
 
+@ login_required
+def projects(request):
+    return render(request, 'app_data/projects.html')
+
 
 @csrf_exempt
 @ login_required

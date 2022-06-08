@@ -4,7 +4,7 @@
 {% block content %}
 
 <!--STASH -------------------------  -->
-<link href="{% static 'base.css' %}" rel="stylesheet">
+<link href="{% static 'css/stash.css' %}" rel="stylesheet">
 
 <div class="stash" id="app">
     <div class="topnav">
@@ -19,12 +19,10 @@
     <button class="button" @click="showModal = true">
         Add Yarn
     </button>
-    <transition name="fade" appear>
         <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
-    </transition>
-    <transition name="slide" appear>
-        <div class="modal" v-if="showModal">
+        <div class="modal" v-show="showModal">
             <form @submit.prevent="addYarn">
+                {% csrf_token %}
                 <label for="name">Yarn Brand & Name</label><br>
                 <input v-model="name" type="name" id="name"><br>
                 <label for="fiber_type">Fiber Type</label><br>
@@ -46,25 +44,19 @@
                 Submit
             </button>
         </div>
-    </transition>
-
-    <!-- <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ add_yarn_form|crispy }}
-        <button type="submit">Add</button> -->
-
+   
 
     <!-- STASH LIST  -->
     <h4><i>Your current stash</i></h4>
     <div class="yarn-list">
         <div class="yarn-card" v-for="yarn in yarns">
+            <div class="yarn-image">
+                <img class="cover" id="stash-img":src="[[ yarn.image ]]"><br>
+            </div>
             <p>[[ yarn.name ]]
                 <br>
                 "[[ yarn.colorway ]]"
             </p>
-            <div class="yarn-image">
-                <img class="cover" :src="[[ yarn.image ]]"><br>
-            </div>
             <button @click="deleteYarn(yarn)" type="button" id="delete-yarn">Delete</button>
         </div>
     </div>
@@ -99,5 +91,5 @@
 
     </div>
 </div>
-<script src="{% static 'stash.js' %}"></script>
+<script src="{% static 'js/stash.js' %}"></script>
 {% endblock %}
