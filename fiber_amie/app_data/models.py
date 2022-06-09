@@ -55,18 +55,3 @@ class AddProject(models.Model):
     class Meta: 
         verbose_name_plural = "Projects"
 
-# class AddCrochetProject(models.Model):
-#     pattern_name = models.CharField(max_length=50)
-#     designer = models.CharField(max_length=50, null=True, blank=True)
-#     hook = models.CharField(max_length=50, null=True, blank=True)
-#     gauge = models.CharField(max_length=30, null=True, blank=True)
-#     yarn = models.CharField(max_length=50, null=True, blank=True)
-#     colorway = models.CharField(max_length=50,null=True, blank=True)
-#     total_yardage = models.PositiveIntegerField(null=True, blank=True)
-#     notes = models.CharField(max_length=1000, null=True, blank=True)
-#     image = models.ImageField(upload_to='images', null=True, blank=True)
-#     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-#     def __str__(self):
-#         return f'{self.username}_{self.pattern_name}'
-#     class Meta: 
-#         verbose_name_plural = "Projects"

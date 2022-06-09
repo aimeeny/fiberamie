@@ -232,60 +232,6 @@
         text-decoration: none;
         transition-duration: .4s;
     }
-    
-    /* SETTINGS  */
-
-    .settings a {
-        font-family: 'Raleway', sans-serif;
-        text-decoration: none;
-        color: #383838;
-        font-weight: 500;
-        padding: .5rem;
-    }
-    .settings h4 {
-        font-family: 'Raleway', sans-serif;
-    }
-    .settings-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    #preferences {
-        background: #fff;
-    }
-    .settings-container {
-        background: #fff;
-        height: 70vh;
-        padding: 1rem;
-    }
-
-    /* MODAL FORM  */
-    .modal-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 98;
-    }
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 99;
-        width: 90%;
-        background-color: #fff;
-        border-radius: 15px;
-        padding: 1rem;
-        font-family: 'Raleway', sans-serif;
-        border: 2px solid #896283;
-        
-    }
-    
-    .modal input {
-        margin-bottom: .5rem;
-    }
-
+ 
  
 }

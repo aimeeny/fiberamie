@@ -4,7 +4,7 @@
 {% block content %}
 
 <!--SETTINGS -------------------------  -->
-<link href="{% static 'base.css' %}" rel="stylesheet">
+<link href="{% static 'css/settings.css' %}" rel="stylesheet">
 
 <div class="settings" id="app">
     <h1>Settings</h1>
@@ -14,7 +14,7 @@
     <div class="settings-menu">
         <a href="preferences/" id="preferences">Preferences</a>
         <a href="access-settings/">Accessibility</a>
-        <a href="logout/">Log Out</a>
+        <a href="/logout/">Log Out</a>
     </div>
 
     <div class="settings-container">
@@ -29,31 +29,31 @@
     <div class="navbar">
         <div class="icon">
             <a href="/home">
-                <img src="{% static 'home.svg' %}">
+                <img src="{% static 'images/home.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/search">
-                <img src="{% static 'search.svg' %}">
+                <img src="{% static 'images/search.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/projects">
-                <img src="{% static 'projects.svg' %}">
+                <img src="{% static 'images/projects.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/stash">
-                <img src="{% static 'stash.png' %}">
+                <img src="{% static 'images/stash.png' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
-                <img src="{% static 'needles.png' %}">
+                <img src="{% static 'images/needles.png' %}">
             </a>
         </div>
 
     </div>
 </div>
-<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'js/settings.js' %}"></script>
 {% endblock %}

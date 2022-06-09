@@ -6,6 +6,9 @@ from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNee
 from django.contrib.auth.models import User
 
 class AddYarnViewSet(viewsets.ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+        return super().perform_create(serializer)
     queryset = AddYarnDetailed.objects.all().order_by('-yarn_weight')
     serializer_class = AddYarnDetailedSerializer
     permission_classes = [permissions.IsAuthenticated]

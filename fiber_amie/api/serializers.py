@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):
     image = serializers.ImageField()
+    
+        
     class Meta: 
         model = AddYarnDetailed
         fields = ['id', 'name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'skeins', 'image', 'notes', 'username']

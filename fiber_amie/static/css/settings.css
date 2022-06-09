@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@media screen and (min-width: 360px) {
+    body {
+        max-height: 100vw;
+        padding-bottom: 4rem;
+        /* background-color: #F4E2EA; */
+        background-image: linear-gradient(#f4e2ea, #dfc8d2);
+        background-attachment: fixed;
+    }
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #896283;
+        text-shadow: 1px 1px #383838;
+        margin-bottom: .25rem;
+        margin-top: -.5rem;
+        text-align: center;
+        font-weight: 800;
+    }
+    .topnav {
+        /* position: fixed; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 3rem;
+        margin-bottom: 2rem;
+        padding: 0;
+        left: 0;
+        top: 0;
+        z-index: 200;
+    }
+    .topnav img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .navbar {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        z-index: 200;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #F4E2EA;
+        border-top: 1px solid #fff;
+    }
+    /* SETTINGS  */
+
+    .settings a {
+        font-family: 'Raleway', sans-serif;
+        text-decoration: none;
+        color: #383838;
+        font-weight: 500;
+        padding: .5rem;
+    }
+    .settings h4 {
+        font-family: 'Raleway', sans-serif;
+    }
+    .settings-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #preferences {
+        background: #fff;
+    }
+    .settings-container {
+        background: #fff;
+        height: 70vh;
+        padding: 1rem;
+    }
+
+} 

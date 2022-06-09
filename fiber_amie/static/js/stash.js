@@ -6,7 +6,6 @@ const App = {
             result: '',
             yarns: [],
             yarn: '',
-            // csrf_token: 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu',
             csrf_token: '',
             name: '',
             fiber_type: '',
@@ -43,8 +42,8 @@ const App = {
         },
         addYarn () {
             console.log(this.image)
-            const form_data = new FormData() 
-            form_data.append('image', this.image, this.image.name)
+            // const form_data = new FormData() 
+            // form_data.append('image', this.image, this.image.name)
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
@@ -61,7 +60,7 @@ const App = {
                 }
             }).then(res => this.getStash())
             .catch(error => console.log(error))
-            console.log(res.data)
+            
         },
         deleteYarn (yarn) {
             axios.delete(`http://127.0.0.1:8000/yarns/${yarn.id}/`, {
