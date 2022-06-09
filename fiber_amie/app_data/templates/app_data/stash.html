@@ -45,7 +45,7 @@
             </button>
         </div>
    
-
+    {% if user.is_authenticated %}
     <!-- STASH LIST  -->
     <h4><i>Your current stash</i></h4>
     <div class="yarn-list">
@@ -53,14 +53,14 @@
             <div class="yarn-image">
                 <img class="cover" id="stash-img":src="[[ yarn.image ]]"><br>
             </div>
-            <p>[[ yarn.name ]]
+            <p>[[ yarn.name ]] [[ user.username ]]
                 <br>
                 "[[ yarn.colorway ]]"
             </p>
             <button @click="deleteYarn(yarn)" type="button" id="delete-yarn">Delete</button>
         </div>
     </div>
-
+    {% endif %}
     <!-- BOTTOM NAV  -->
     <div class="navbar">
         <div class="icon">

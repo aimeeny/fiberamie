@@ -33,7 +33,7 @@
     <div class="home-body">
         <p>Hi, {{ user.username }}</p>
         <p>Your recent projects...</p>
-        <img src="{% static 'images/cowl.jpg' %}">
+        <img id="src="{% static 'images/cowl.jpg' %}">
     </div>
 
 
@@ -73,5 +73,5 @@
         document.querySelector(".wrapper").classList.toggle("side-nav-open");
     })
 </script> -->
-<script src="{% static 'js/script.js' %}"></script>
+<!-- <script src="{% static 'js/script.js' %}"></script> -->
 {% endblock %}

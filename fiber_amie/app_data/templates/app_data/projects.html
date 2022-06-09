@@ -54,13 +54,13 @@
     <h4><i>Your projects</i></h4>
     <div class="project-list">
         <div class="project-card" v-for="project in projects">
-            <p>[[ project.pattern_name ]] by [[ project.designer ]]
-                <br>
-                "[[ project.colorway ]]"
-            </p>
             <div class="project-image">
                 <img class="cover" :src="[[ project.image ]]"><br>
             </div>
+            <p>[[ project.pattern_name ]] by [[ project.designer ]]
+                <br>
+                "[[ project.colorway ]]"
+            </p><br>
             <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
         </div>
     </div>

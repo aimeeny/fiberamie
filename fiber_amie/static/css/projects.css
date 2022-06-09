@@ -72,7 +72,62 @@
     .modal input {
         margin-bottom: .5rem;
     }
-
-    
+    .project-list 
+    .project-card {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+        border: 2px solid #fff;
+        width: 87%;
+        max-height: 10rem;
+        border-radius: 15px;
+        background:#dfc8d2;
+        align-items: center;
+        text-align: center;
+        margin: .25rem;
+    }
+    h4 {
+        font-family: 'Raleway', sans-serif;
+        
+    }
+    p {
+        font-family: 'Raleway', sans-serif; 
+    }
+    img.cover {
+        height: 8rem;
+        width: 8rem;
+    }
+    .cover {
+        object-fit: cover;
+    }
+    .button {
+        margin-left: 4rem;
+        margin-right: 4rem; 
+        font-family: 'Raleway', sans-serif;
+        outline: none;
+        border: none;
+        background: #dfc8d2;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 25px;
+        box-shadow: 3px 3px #896283;
+        transition: .4s ease-out; 
+        border-radius: 15px;
+    }
+    .button:hover {
+        background: #fbebf2;
+    }
+    #delete-project {
+        font-family: 'Raleway', sans-serif;
+        background: #896283;
+        color:#fff;
+        border: none;
+        padding: .4rem;
+        border-radius: 10px;
+        margin: .25rem;
+        cursor: pointer;
+    }
 
 }

@@ -6,6 +6,8 @@ const App = {
             result: '',
             yarns: [],
             yarn: '',
+            users: [],
+            user: '',
             csrf_token: '',
             name: '',
             fiber_type: '',
@@ -16,6 +18,8 @@ const App = {
             image: '',
             notes: '',
             showModal: false,
+            user: '',
+            username: '',
             
         }
     },
@@ -36,12 +40,12 @@ const App = {
                     password: 'password'
                 }
             }).then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 this.yarns = res.data
             }).catch(error => console.log(error.message))
         },
         addYarn () {
-            console.log(this.image)
+            // console.log(this.image)
             // const form_data = new FormData() 
             // form_data.append('image', this.image, this.image.name)
             axios({
@@ -77,6 +81,21 @@ const App = {
         imageSelected (event) {
             this.image = event.target.files[0]
         },
+        getUsers () {
+            axios({
+                method: 'get',
+                headers: { Accept: 'application/json'},
+                url: 'http://127.0.0.1:8000/users/',
+                auth: {
+                    username: 'username',
+                    password: 'password'
+                }
+            }).then(res => {
+                console.log(res.data)
+                this.users = res.data
+            }).catch(error => console.log(error.message))
+        },
+        
     },
 }
 const app = Vue.createApp(App)
