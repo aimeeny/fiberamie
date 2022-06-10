@@ -8,10 +8,15 @@
 
 <div class="stash" id="app">
     <div class="topnav">
-        <a href="/settings">
-            <img src="{% static 'images/settings.svg' %}">
-        </a>
-        <h1><i>yarn stash</i></h1>
+        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+            <div class="modal" v-show="showMenu">
+                {% csrf_token %}
+                <a href="/settings" id="settings">Settings</a><br>
+                <a href="/logout/">Log Out</a>
+            </div>
+
+            <h1><i>stash</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
@@ -20,7 +25,7 @@
         Add Yarn
     </button>
         <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
-        <div class="modal" v-show="showModal">
+        <div class="form-modal" v-show="showModal">
             <form @submit.prevent="addYarn">
                 {% csrf_token %}
                 <label for="name">Yarn Brand & Name</label><br>
@@ -51,9 +56,23 @@
     <div class="yarn-list">
         <div class="yarn-card" v-for="yarn in yarns">
             <div class="yarn-image">
-                <img class="cover" id="stash-img":src="[[ yarn.image ]]"><br>
+                <img class="cover" id="stash-img":src="[[ yarn.image ]]" @click="getYarnDetail(yarn); showDetails = true"><br>
+                <div class="yarn-details" v-if="showDetails" @click="showDetails = false"></div>
+                <div class="yarn-modal" v-show="showDetails">
+                   <p><img class="cover" id="stash-detail-img":src="[[ yarn.image ]]">
+                    <br>
+                    [[ yarn.name ]] in colorway "[[ yarn.colorway ]]" <br>
+                    [[ yarn.fiber_type ]]<br>
+                    [[ yarn.skeins ]] skeins, [[ yarn.yardage ]] yards <br>
+                    [[ yarn.weight ]] weight<br>
+                    Notes: [[ yarn.notes ]]<br>
+                    </p>
+                    <button class="return" @click="showDetails = false">
+                        Back
+                    </button>
+                </div>
             </div>
-            <p>[[ yarn.name ]] [[ user.username ]]
+            <p>[[ yarn.name ]]
                 <br>
                 "[[ yarn.colorway ]]"
             </p>

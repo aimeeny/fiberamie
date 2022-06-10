@@ -9,6 +9,8 @@ class AddYarnViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(username=self.request.user)
         return super().perform_create(serializer)
+    def get_queryset(self):
+        return AddYarnDetailed.objects.all().order_by('-yarn_weight').filter(username = self.request.user)
     queryset = AddYarnDetailed.objects.all().order_by('-yarn_weight')
     serializer_class = AddYarnDetailedSerializer
     permission_classes = [permissions.IsAuthenticated]

@@ -118,6 +118,7 @@ body {
     height: 6rem;
     width: 6rem;
     margin-right: .3rem;
+    cursor: pointer;
     /* position: fixed; */
     /* object-fit: contain; */
 }
@@ -143,7 +144,7 @@ body {
     bottom: 0;
     z-index: 98;
 }
-.modal {
+.form-modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -159,4 +160,60 @@ body {
 .modal input {
     margin-bottom: .5rem;
 }
+    /* SETTINGS MODAL  */
+    .menu-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+    }
+    .modal {
+        position: fixed;
+        top: 25%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 25%;
+        height: 35%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .yarn-modal {
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 99;
+        width: 80%;
+        height: 70%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .yarn-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #stash-detail-img {
+        height: 15rem;
+        width: 15rem;
+        margin-right: .3rem;
+        border: 2px solid #dfc8d2;
+    }
+
+
 }

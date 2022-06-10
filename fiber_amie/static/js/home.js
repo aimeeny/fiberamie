@@ -1,7 +1,7 @@
 const App = {
     data() {
         return {
-
+            showMenu: false,
         }
     },
     delimiters: ['[[',']]'],

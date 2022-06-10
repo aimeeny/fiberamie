@@ -5,35 +5,40 @@
 {% block content %}
 <link href="{% static 'css/home.css' %}" rel="stylesheet">
 
-
 <div class="home" id="app">
 
-    <!-- <div class="wrapper side-nav-open">
-        <div class="home-body">
-            <p> HELLO</p>
-        </div>
-        <button class="sidenav-toggle" type="button">
-            <span class="hamburger-open">&#9776;</span>
-            <span class="hamburger-close">&#10006;</span>
-        </button>
-        <div class="side-nav">
-            <a href="/logout">Log Out</a>
-        </div>
-    </div> -->
-
-
     <div class="topnav">
-        <a href="/settings">
-            <img src="{% static 'images/settings.svg' %}">
-        </a>
+        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+            <div class="modal" v-show="showMenu">
+                {% csrf_token %}
+                <a href="/settings" id="settings">Settings</a><br>
+                <a href="/logout/">Log Out</a>
+            </div>
+
+            <h1><i>fiber amie</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
+
+
+
+
 
     {% if user.is_authenticated %}
     <div class="home-body">
         <p>Hi, {{ user.username }}</p>
         <p>Your recent projects...</p>
-        <img id="src="{% static 'images/cowl.jpg' %}">
+        <div class="project-list">
+            <div class="project-card" v-for="project in projects">
+                <p><b>[[ project.pattern_name ]]</b> by [[ project.designer ]]
+                </p><br>
+                <div class="project-image">
+                    <img class="cover" :src="[[ project.image ]]"><br>
+                </div>
+                
+                
+            </div>
+        </div>
     </div>
 
 
@@ -73,5 +78,5 @@
         document.querySelector(".wrapper").classList.toggle("side-nav-open");
     })
 </script> -->
-<!-- <script src="{% static 'js/script.js' %}"></script> -->
+<script src="{% static 'js/projects.js' %}"></script>
 {% endblock %}

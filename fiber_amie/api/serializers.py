@@ -3,7 +3,7 @@ from app_data.models import AddYarnBasic, AddYarnDetailed, AddHook, AddNeedle, A
 from django.contrib.auth.models import User
 
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):
-    image = serializers.ImageField()       
+    image = serializers.ImageField(required=False)
     class Meta: 
         model = AddYarnDetailed
         fields = ['id', 'name', 'fiber_type', 'colorway', 'yardage', 'yarn_weight', 'skeins', 'image', 'notes', 'username']
@@ -24,6 +24,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'first_name', 'last_name', 'username', 'email', 'password']
         
 class AddProjectSerializer(serializers.HyperlinkedModelSerializer):
+    image = serializers.ImageField(required=False)
     class Meta:
         model = AddProject
         fields = ['id', 'pattern_name', 'designer', 'needles', 'hook', 'gauge', 'yarn', 'colorway', 'total_yardage', 'notes', 'image', 'username']

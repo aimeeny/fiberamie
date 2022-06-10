@@ -8,10 +8,15 @@
 
 <div class="projects" id="app">
     <div class="topnav">
-        <a href="/settings">
-            <img src="{% static 'images/settings.svg' %}">
-        </a>
-        <h1><i>projects</i></h1>
+        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+            <div class="modal" v-show="showMenu">
+                {% csrf_token %}
+                <a href="/settings" id="settings">Settings</a><br>
+                <a href="/logout/">Log Out</a>
+            </div>
+
+            <h1><i>projects</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
@@ -50,7 +55,7 @@
         </div>
    
 
-    <!-- STASH LIST  -->
+    <!-- PROJECT LIST  -->
     <h4><i>Your projects</i></h4>
     <div class="project-list">
         <div class="project-card" v-for="project in projects">
@@ -59,7 +64,7 @@
             </div>
             <p>[[ project.pattern_name ]] by [[ project.designer ]]
                 <br>
-                "[[ project.colorway ]]"
+                [[ project.yarn ]]
             </p><br>
             <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
         </div>

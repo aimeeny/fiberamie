@@ -18,6 +18,14 @@
         text-align: center;
         font-weight: 800;
     }
+    h4 {
+        font-family: 'Raleway', sans-serif;
+    }
+    p {
+        font-family: 'Raleway', sans-serif;
+        font-size: .9rem;
+        text-align: left;
+    }
     .topnav {
         /* position: fixed; */
         display: flex;
@@ -59,18 +67,92 @@
     }
     .modal {
         position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    width: 90%;
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 1rem;
-    font-family: 'Raleway', sans-serif;
-    border: 2px solid #896283; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 90%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283; 
     }
     .modal input {
         margin-bottom: .5rem;
+    }
+        /* SETTINGS MODAL  */
+    .menu-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+    }
+    .form-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 90%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
+    }
+    /* SETTINGS MODAL  */
+    .menu-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+    }
+    .modal {
+        position: fixed;
+        top: 25%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 25%;
+        height: 35%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .tools .button {
+        margin-left: 4rem;
+        margin-right: 4rem; 
+        font-family: 'Raleway', sans-serif;
+        outline: none;
+        border: none;
+        background: #dfc8d2;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 25px;
+        box-shadow: 3px 3px #896283;
+        transition: .4s ease-out; 
+        border-radius: 15px;
+    }
+    .tool-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .tool-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
     }
 }

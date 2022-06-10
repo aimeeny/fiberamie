@@ -19,6 +19,7 @@ const App = {
             notes: '',
             image: '',
             showModal: false,
+            showMenu: false, 
             
         }
     },

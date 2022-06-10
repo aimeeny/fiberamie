@@ -12,6 +12,7 @@ const App = {
             length: '',
             showModal: false,
             showModal2: false,
+            showMenu: false,
             hooks: [],
             hook: '',
 

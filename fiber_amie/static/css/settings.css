@@ -47,6 +47,7 @@
         background-color: #F4E2EA;
         border-top: 1px solid #fff;
     }
+    
     /* SETTINGS  */
 
     .settings a {
@@ -62,7 +63,7 @@
     .settings-menu {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     #preferences {
         background: #fff;

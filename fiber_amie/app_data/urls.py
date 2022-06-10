@@ -8,4 +8,5 @@ urlpatterns = [
     path('stash/', views.add_yarn, name='stash'),
     path('tools/', views.tools, name='tools'),
     path('projects/', views.projects, name='projects'),
+    path('stash/<int:id>/', views.yarn_detail),
 ]

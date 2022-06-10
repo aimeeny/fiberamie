@@ -9,10 +9,15 @@
 <div class="tools" id="app">
 
     <div class="topnav">
-        <a href="/settings">
-            <img src="{% static 'images/settings.svg' %}">
-        </a>
-        <h1><i>tools</i></h1>
+        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+            <div class="modal" v-show="showMenu">
+                {% csrf_token %}
+                <a href="/settings" id="settings">Settings</a><br>
+                <a href="/logout/">Log Out</a>
+            </div>
+
+            <h1><i>tools</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
@@ -22,7 +27,7 @@
             Add Needles
         </button>
         <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
-        <div class="modal" v-show="showModal">
+        <div class="form-modal" v-show="showModal">
             <form @submit.prevent="addNeedles">
                 {% csrf_token %}
                 <label for="size">Needle size (US)</label>
@@ -41,7 +46,7 @@
             Add Hooks
         </button>
         <div class="modal-overlay" v-if="showModal2" @click="showModal2 = false"></div>
-        <div class="modal" v-show="showModal2">
+        <div class="form-modal" v-show="showModal2">
             <form @submit.prevent="addHooks">
                 {% csrf_token %}
                 <label for="size">Hook size (mm)</label>
