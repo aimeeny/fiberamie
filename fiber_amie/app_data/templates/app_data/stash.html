@@ -59,7 +59,7 @@
                 <img class="cover" id="stash-img" :src="[[ yarn.image ]]"
                     @click="getYarnDetail(yarn); showDetails = true"><br>
                 <div class="yarn-details" v-if="showDetails" @click="showDetails = false"></div>
-                
+
             </div>
             <div class="yarn-card-inner">
                 <p>[[ yarn.name ]]
@@ -69,18 +69,40 @@
                 <button @click="deleteYarn(yarn)" type="button" id="delete-yarn">Delete</button>
             </div>
         </div>
-        <div class="yarn-modal" v-show="showDetails">
-            <p><img class="cover" id="stash-detail-img" :src="[[ yarn.image ]]">
-                <br>
-                [[ yarn.name ]] in colorway "[[ yarn.colorway ]]" <br>
-                [[ yarn.fiber_type ]]<br>
-                [[ yarn.skeins ]] skeins, [[ yarn.yardage ]] yards <br>
-                [[ yarn.weight ]] weight<br>
-                Notes: [[ yarn.notes ]]<br>
-            </p>
-            <button class="return" @click="closeDetails">
-                Back
-            </button>
+        <div class="yarn-modal" v-show="yarn.showDetails">
+            <div class="stash-overflow">
+                <button class="button" @click="closeDetails">
+                    Back
+                </button>
+                <div v-if="yarn.image">
+                    <img v-else class="cover" id="stash-detail-img" :src="[[ yarn.image ]]">
+                </div>
+                <p v-else>Add an image!</p>
+
+                <h4>Brand/name</h4>
+                <p v-if="yarn.name">[[yarn.name]]</p>
+                <p v-if="yarn.colorway">in colorway [[yarn.colorway]]</p>
+                <p v-else>no data</p>
+
+                <h4>Fiber</h4>
+                <p v-if="yarn.fiber_type">[[yarn.fiber_type]]</p>
+                <p v-else>no fiber data</p>
+
+                <h4>Skeins & Yardage</h4>
+                <p v-if="yarn.skeins">[[yarn.skeins]] skeins</p>
+                <p v-else></p>
+                <p v-if="yarn.yardage">[[yarn.yardage]] yards</p>
+                <p v-else>no yardage data</p>
+
+                <h4>Weight</h4>
+                <p v-if="yarn.weight">[[yarn.weight]] weight</p>
+                <p v-else>no weight data</p>
+
+                <h4>Notes</h4>
+                <p v-if="yarn.notes">[[yarn.notes]]</p>
+                <p else>no notes</p>
+
+            </div>
         </div>
     </div>
     {% endif %}

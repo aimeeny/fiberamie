@@ -120,6 +120,7 @@
     }
     .cover {
         object-fit: cover;
+        cursor: pointer;
     }
     .button-div {
         display: flex;
@@ -184,7 +185,12 @@
         border: 2px solid #896283;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .project-overflow {
+        max-height: 100%;
+        overflow-y: scroll;
     }
     .project-details {
         display: flex;
@@ -195,6 +201,8 @@
         height: 15rem;
         width: 15rem;
         margin-right: .3rem;
+        margin-top: .3rem;
         border: 2px solid #dfc8d2;
+        
     }
 }

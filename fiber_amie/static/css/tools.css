@@ -8,6 +8,9 @@
         background-image: linear-gradient(#f4e2ea, #dfc8d2);
         background-attachment: fixed;
     }
+    .tools {
+        margin-bottom: 5rem;
+    }
     h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
@@ -154,5 +157,11 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
+    }
+    table {
+        border: 1px solid #896283;
+        font-family: 'Raleway', sans-serif;
+        font-size: 2rem;
+        max-width: 70%;
     }
 }

@@ -27,7 +27,6 @@ const App = {
     },
     mounted() {
         this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-        // this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu'
         this.getStash()
     },
     delimiters: ['[[',']]'],
@@ -116,6 +115,7 @@ const App = {
         closeDetails (yarn) {
             this.yarn = yarn
             yarn.showDetails = false
+            // this.showDetails = false
         }
     },
 }

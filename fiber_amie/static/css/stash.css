@@ -60,7 +60,7 @@ body {
 
 
  /* PAGE SPECIFIC  */
- 
+
 .stash {
     display: flex;
     flex-direction: column;
@@ -209,6 +209,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
     }
     .yarn-details {
         display: flex;
@@ -221,6 +222,8 @@ body {
         margin-right: .3rem;
         border: 2px solid #dfc8d2;
     }
-
-
+    .stash-overflow {
+        max-height: 100%;
+        overflow-y: scroll;
+    }
 }

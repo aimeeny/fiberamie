@@ -7,6 +7,7 @@
 <link href="{% static 'css/projects.css' %}" rel="stylesheet">
 
 <div class="projects" id="app">
+    <!-- TOP NAV AND PAGE HEADER  -->
     <div class="topnav">
         <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
         <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
@@ -75,18 +76,44 @@
                 <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
             </div>
         </div>
+
+        <!-- POP UP MODAL WITH PROJECT DETAILS -->
         <div class="project-modal" v-show="project.showDetails">
-            <p><img class="cover" id="project-detail-img" :src="[[ project.image ]]">
-                <br>
-                [[ project.name ]] designed by "[[ project.designer ]]" <br>
-                [[ project.fiber_type ]]<br>
-                [[ yarn.skeins ]] skeins, [[ yarn.yardage ]] yards <br>
-                [[ yarn.weight ]] weight<br>
-                Notes: [[ yarn.notes ]]<br>
-            </p>
-            <button class="return" @click="closeDetails">
-                Back
-            </button>
+            <div class="project-overflow">
+                <button class="button" @click="closeDetails">
+                    Back
+                </button>
+                <div v-if="project.image">
+                    <img v-else class="cover" id="project-detail-img" :src="[[ project.image ]]">
+                </div>
+                <p v-else>Add an image!</p>
+
+                <h4>[[ project.pattern_name ]]</h4>
+                <p v-if="project.designer">Designed by [[ project.designer ]]</p>
+                <p v-else>no data</p>
+
+                <h4>Needles/Hook</h4>
+                <p v-if="project.needles">US [[ project.needles ]] needles</p>
+                <p v-else-if="project.hook">[[ project.hook ]] mm hook</p>
+                <p v-else>no tool data</p>
+
+                <h4>Gauge</h4>
+                <p v-if="project.gauge">[[ project.gauge ]]</p>
+                <p v-else>no gauge data</p>
+
+                <h4>Yarn Information</h4>
+                <p v-if="project.yarn">[[ project.yarn ]]</p>
+                <p v-else>no yarn data</p>
+                <p v-if="project.colorway">[[ project.colorway ]]</p>
+                <p v-else>no colorway data</p>
+                <p v-if="project.total_yardage">[[ project.total_yardage ]] yards</p>
+                <p v-else>no yardage data</p>
+
+                <h4>Notes</h4>
+                <p v-if="project.notes">[[ project.notes ]]</p>
+                <p v-else>no notes</p>
+                </p>
+            </div>
         </div>
     </div>
 

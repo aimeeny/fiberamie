@@ -8,6 +8,7 @@
 
 <div class="tools" id="app">
 
+    <!-- TOP NAV  -->
     <div class="topnav">
         <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
             <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
@@ -60,7 +61,9 @@
         </div>
     </div>
 
-    <h4><i>Your needles</i></h4>
+    <!-- TOOLS LIST  -->
+    {% if user.is_authenticated %}
+    <!-- <h4><i>Your needles</i></h4>
     <div class="tool-list" v-for="needle in needles">
         {% csrf_token %}
         <p>US [[ needle.size ]], [[ needle.brand ]]</p>
@@ -68,12 +71,34 @@
     </div>
     <h4><i>Your hooks</i></h4>
     <div class="tool-list" v-for="hook in hooks">
-        {% csrf_token %}
         <p>[[ hook.size ]] mm, [[ hook.brand ]]</p>
         <button @click="deleteHooks(hook)" type="button">Delete</button>
-    </div>
+    </div> -->
+    <h4><i>Your needles</i></h4>
+    {% csrf_token %}
+    <table v-for="needle in needles"></table>
+        <tr>
+            <th>Size (US)</th>
+            <th>Size (mm)</th>
+            <th>Length (in)</th>
+            <th>Brand</th>
+            <th>In Use?</th>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>-</td>
+            <td>--</td>
+            <td>--</td>
+            <td>-</td>
+        </tr>
+    </table>
 
 
+
+    <h4><i>Your hooks</i></h4>
+
+
+    <!-- BOTTOM NAV -->
     <div class="navbar">
         <div class="icon">
             <a href="/home">
@@ -102,6 +127,7 @@
         </div>
 
     </div>
+    {% endif %}
 </div>
 <script src="{% static 'js/tools.js' %}"></script>
 {% endblock %}

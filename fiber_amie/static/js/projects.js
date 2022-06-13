@@ -6,7 +6,6 @@ const App = {
             result: '',
             projects: [],
             project: '',
-            // csrf_token: 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu',
             csrf_token: '',
             pattern_name: '',
             designer: '',
@@ -21,11 +20,12 @@ const App = {
             showModal: false,
             showMenu: false, 
             showDetails: false,
+            user: '',
+            username: '',
         }
     },
     mounted() {
         this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-        // this.csrf_token = 'GRnZNdvT9lGhVKU18oRUFStJC6MFuQ9DVfhiIvJwXlzNHxedYo2DAgsY5nGrHWsu'
         this.getProjects()
     },
     delimiters: ['[[',']]'],
@@ -40,7 +40,6 @@ const App = {
                     password: 'password'
                 }
             }).then(res => {
-                // console.log(res.data)
                 this.projects = res.data
             }).catch(error => console.log(error.message))
         },
