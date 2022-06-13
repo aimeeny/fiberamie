@@ -88,6 +88,22 @@ body {
     text-align: center;
     margin: .25rem;
 }
+.yarn-card-inner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#delete-yarn {
+    font-family: 'Raleway', sans-serif;
+    background: #896283;
+    color:#fff;
+    border: none;
+    padding: .4rem;
+    border-radius: 10px;
+    margin: .5rem;
+    cursor: pointer;
+}
 .stash p {
     font-family: 'Raleway', sans-serif;
     font-size: .9rem;
@@ -125,16 +141,7 @@ body {
 .cover {
     object-fit: cover;
 }
-#delete-yarn {
-    font-family: 'Raleway', sans-serif;
-    background: #896283;
-    color:#fff;
-    border: none;
-    padding: .4rem;
-    border-radius: 10px;
-    margin: .25rem;
-    cursor: pointer;
-}
+
 /* MODAL FORM  */
 .modal-overlay {
     position: absolute;

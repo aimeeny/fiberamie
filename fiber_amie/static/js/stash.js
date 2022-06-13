@@ -98,18 +98,24 @@ const App = {
             }).catch(error => console.log(error.message))
         },
         getYarnDetail (yarn) {
-            axios({
-                method: 'get',
-                headers: { Accept: 'application/json' },
-                url:`http://127.0.0.1:8000/yarns/${yarn.id}/`,
-                auth: {
-                    username: 'username',
-                    password: 'password'
-                }
-            }).then(res => {
-                console.log(res.data)
-                this.yarn = res.data
-            }).catch(error => console.log(error.message))
+            this.yarn = yarn
+            yarn.showDetails = true
+            // axios({
+            //     method: 'get',
+            //     headers: { Accept: 'application/json' },
+            //     url:`http://127.0.0.1:8000/yarns/${yarn.id}/`,
+            //     auth: {
+            //         username: 'username',
+            //         password: 'password'
+            //     }
+            // }).then(res => {
+            //     console.log(res.data)
+            //     this.yarn = res.data
+            // }).catch(error => console.log(error.message))
+        },
+        closeDetails (yarn) {
+            this.yarn = yarn
+            yarn.showDetails = false
         }
     },
 }

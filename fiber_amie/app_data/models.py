@@ -47,6 +47,7 @@ class AddProject(models.Model):
     yarn = models.CharField(max_length=50, null=True, blank=True)
     colorway = models.CharField(max_length=50,null=True, blank=True)
     total_yardage = models.PositiveIntegerField(null=True, blank=True)
+    # start_date = models.DateField()
     notes = models.CharField(max_length=1000, null=True, blank=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

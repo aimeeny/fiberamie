@@ -20,7 +20,7 @@ const App = {
             image: '',
             showModal: false,
             showMenu: false, 
-            
+            showDetails: false,
         }
     },
     mounted() {
@@ -83,7 +83,27 @@ const App = {
         imageSelected (event) {
             this.image = event.target.files[0]
         },
-
+        getProjectDetail (project) {
+            this.project = project
+            project.showDetails = true
+            // axios({
+            //     method: 'get',
+            //     headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token },
+            //     url:`http://127.0.0.1:8000/projects_drf/${project.id}/`,
+            //     auth: {
+            //         username: 'username',
+            //         password: 'password'
+            //     }
+            // }).then(res => {
+            //     console.log(res.data)
+            //     this.project = res.data
+            // this.showDetails = true
+            // }).catch(error => console.log(error.message))
+        },
+        closeDetails (project) {
+            this.project = project
+            project.showDetails = false
+        }
     },
 }
 const app = Vue.createApp(App)

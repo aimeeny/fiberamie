@@ -9,64 +9,84 @@
 <div class="projects" id="app">
     <div class="topnav">
         <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
-            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
-            <div class="modal" v-show="showMenu">
-                {% csrf_token %}
-                <a href="/settings" id="settings">Settings</a><br>
-                <a href="/logout/">Log Out</a>
-            </div>
+        <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+        <div class="modal" v-show="showMenu">
+            {% csrf_token %}
+            <a href="/settings" id="settings">Settings</a><br>
+            <a href="/logout/">Log Out</a>
+        </div>
 
-            <h1><i>projects</i></h1>
+        <h1><i>projects</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
     <!-- ADD PROJECT BUTTON AND FORM  -->
-    <button class="button" @click="showModal = true">
-        Add Project
-    </button>
-        <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
-        <div class="modal" v-show="showModal">
-            {% csrf_token %}
-            <form @submit.prevent="addProject">
-                <label for="pattern_name">Pattern name</label>
-                <input v-model="pattern_name" type="pattern_name" id="pattern_name"><br>
-                <label for="designer">Designer</label>
-                <input v-model="designer" type="designer" id="designer"><br>
-                <label for="needles">Needle Size (if knit)</label>
-                <input v-model="needles" type="needles" id="needles"><br>
-                <label for="hook">Hook Size (if crochet)</label>
-                <input v-model="hook" type="hook" id="hook"><br>
-                <label for="gauge">Gauge</label>
-                <input v-model="gauge" type="gauge" id="gauge"><br>
-                <label for="yarn">Yarn Brand & Name</label>
-                <input v-model="yarn" type="yarn" id="yarn"><br>
-                <label for="colorway">Colorway</label>
-                <input v-model="colorway" type="colorway" id="colorway"><br>
-                <label for="total_yardage">Total yardage used</label>
-                <input v-model="total_yardage" type="total_yardage" id="total_yardage"><br>
-                <label for="notes">Project notes</label>
-                <input v-model="notes" type="textarea" id="notes"><br>
-                <label for="image">Image</label><br>
-                <input @change="imageSelected" type="file" id="image"><br>
-            </form>
-            <button type="submit" class="button" @click="showModal = false; addProject()">
-                Submit
-            </button>
-        </div>
-   
+    <div class="button-div">
+        <button class="button" @click="showModal = true">
+            Add Project
+        </button>
+    </div>
+    <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+    <div class="form-modal" v-show="showModal">
+        {% csrf_token %}
+        <form @submit.prevent="addProject">
+            <label for="pattern_name">Pattern name</label><br>
+            <input v-model="pattern_name" type="pattern_name" id="pattern_name"><br>
+            <label for="designer">Designer</label><br>
+            <input v-model="designer" type="designer" id="designer"><br>
+            <label for="needles">Needle Size (if knit)</label><br>
+            <input v-model="needles" type="needles" id="needles"><br>
+            <label for="hook">Hook Size (if crochet)</label><br>
+            <input v-model="hook" type="hook" id="hook"><br>
+            <label for="gauge">Gauge</label><br>
+            <input v-model="gauge" type="gauge" id="gauge"><br>
+            <label for="yarn">Yarn Brand & Name</label><br>
+            <input v-model="yarn" type="yarn" id="yarn"><br>
+            <label for="colorway">Colorway</label><br>
+            <input v-model="colorway" type="colorway" id="colorway"><br>
+            <label for="total_yardage">Total yardage used</label><br>
+            <input v-model="total_yardage" type="total_yardage" id="total_yardage"><br>
+            <label for="notes">Project notes</label><br>
+            <input v-model="notes" type="textarea" id="notes"><br>
+            <label for="image">Image</label><br>
+            <input @change="imageSelected" type="file" id="image"><br>
+        </form>
+        <button type="submit" class="button" @click="showModal = false; addProject()">
+            Submit
+        </button>
+    </div>
+
 
     <!-- PROJECT LIST  -->
     <h4><i>Your projects</i></h4>
     <div class="project-list">
         <div class="project-card" v-for="project in projects">
             <div class="project-image">
-                <img class="cover" :src="[[ project.image ]]"><br>
+                <img class="cover" :src="[[ project.image ]]"
+                    @click="getProjectDetail(project); showDetails = true"><br>
             </div>
-            <p>[[ project.pattern_name ]] by [[ project.designer ]]
+            <div class="project-details" v-if="project.showDetails" @click="showDetails = false"></div>
+
+            <div class="project-card-inner">
+                <p>[[ project.pattern_name ]] by [[ project.designer ]]
+                    <br>
+                    [[ project.yarn ]]
+                </p><br>
+                <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
+            </div>
+        </div>
+        <div class="project-modal" v-show="project.showDetails">
+            <p><img class="cover" id="project-detail-img" :src="[[ project.image ]]">
                 <br>
-                [[ project.yarn ]]
-            </p><br>
-            <button @click="deleteProject(project)" type="button" id="delete-project">Delete</button>
+                [[ project.name ]] designed by "[[ project.designer ]]" <br>
+                [[ project.fiber_type ]]<br>
+                [[ yarn.skeins ]] skeins, [[ yarn.yardage ]] yards <br>
+                [[ yarn.weight ]] weight<br>
+                Notes: [[ yarn.notes ]]<br>
+            </p>
+            <button class="return" @click="closeDetails">
+                Back
+            </button>
         </div>
     </div>
 

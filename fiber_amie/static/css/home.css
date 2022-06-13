@@ -8,6 +8,9 @@
         background-image: linear-gradient(#f4e2ea, #dfc8d2);
         background-attachment: fixed;
     }
+    .home {
+        margin-bottom: 5rem;
+    }
     h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;

@@ -8,6 +8,9 @@
         background-image: linear-gradient(#f4e2ea, #dfc8d2);
         background-attachment: fixed;
     }
+    .projects {
+        margin-bottom: 5rem;
+    }
     h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
@@ -56,7 +59,7 @@
         bottom: 0;
         z-index: 98;
     }
-    .modal {
+    .form-modal {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -88,6 +91,22 @@
         text-align: center;
         margin: .25rem;
     }
+    .project-card-inner {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    #delete-project {
+        font-family: 'Raleway', sans-serif;
+        background: #896283;
+        color:#fff;
+        border: none;
+        padding: .4rem;
+        border-radius: 10px;
+        margin: .5rem;
+        cursor: pointer;
+    }
     h4 {
         font-family: 'Raleway', sans-serif;
         
@@ -102,9 +121,12 @@
     .cover {
         object-fit: cover;
     }
+    .button-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
     .button {
-        margin-left: 4rem;
-        margin-right: 4rem; 
         font-family: 'Raleway', sans-serif;
         outline: none;
         border: none;
@@ -119,16 +141,7 @@
     .button:hover {
         background: #fbebf2;
     }
-    #delete-project {
-        font-family: 'Raleway', sans-serif;
-        background: #896283;
-        color:#fff;
-        border: none;
-        padding: .4rem;
-        border-radius: 10px;
-        margin: .25rem;
-        cursor: pointer;
-    }
+    
     /* SETTINGS MODAL  */
     .menu-overlay {
         position: absolute;
@@ -154,5 +167,34 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+    /* DETAILS MODAL  */
+    .project-modal {
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        /* transform: translate(-50%, -50%); */
+        z-index: 99;
+        width: 80%;
+        height: 70%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .project-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #project-detail-img {
+        height: 15rem;
+        width: 15rem;
+        margin-right: .3rem;
+        border: 2px solid #dfc8d2;
     }
 }
