@@ -15,7 +15,8 @@ const App = {
             showMenu: false,
             hooks: [],
             hook: '',
-
+            sizes: { 0:2.00, 1:2.25, 1.5:2.50, 2:2.75, 2.5:3.00, 3:3.25, 4:3.50, 5:3.75, 6:4.00, 7:4.50, 8:5.00, 9:5.50, 10:6.00, 10.5:6.50, 11:8.00, 13:9.00, 15:10.00, 17:12.25, 19:15-16, 35:19, 36:20, 50:25},
+            metric: '',
             
         }
     },
@@ -107,6 +108,11 @@ const App = {
                 console.log(res.yarns)
             }).catch(error => console.log(error.message))
         },
+        getNeedleMetric (size) {
+            this.size = size
+            metric = this.sizes['size']
+            console.log(metric)
+        }
         
     },
 }

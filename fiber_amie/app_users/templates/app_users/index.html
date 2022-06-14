@@ -1,17 +1,53 @@
 {% extends 'app_users/base_layout.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!-- LANDING -------------------------  -->
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
-    <!-- <img src="app_users/text-logo.png"> -->
+<!-- <img src="app_users/text-logo.png"> -->
 <div class="landing" id="app">
     <img id="logo" src="{% static 'images/text-logo.png' %}">
-    <p>A mobile-friendly, accessible fiber companion app - keep track of your yarn stash, crochet hooks & knitting needles, and the projects you're working on - easily, and on the go!</p>
-    <a class="button" href="sign_up/">Sign Up</a>
-    
-    <a class="button" href="login/">Log In</a>
-  
+    <p>A mobile-friendly, accessible fiber companion app - keep track of your yarn stash, crochet hooks & knitting
+        needles, and the projects you're working on - easily, and on the go!</p>
+
+
+    <!-- SIGN UP -->
+    <button class="button" @click="showSignUp = true">
+        Sign Up
+    </button>
+    <div class="modal-overlay" v-if="showSignUp" @click="showSignUp = false"></div>
+    <div class="form-modal" v-show="showSignUp">
+        <form method="POST">
+            {% csrf_token %}
+            {{ sign_up_form|crispy }}
+            <button type="submit" @click="showSignUp = false">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- LOG IN  -->
+    <button class="button" @click="showLogIn = true">
+        Log In
+    </button>
+    <div class="modal-overlay" v-if="showLogIn" @click="showLogIn = false"></div>
+    <div class="form-modal" v-show="showLogIn">
+        <div class="login-form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="login-form">
+                    <label>Username:</label><br>
+                    {{ login_form.username }}
+                </div><br>
+                <div class="login-form">
+                    <label>Password:</label><br>
+                    {{ login_form.password }}
+                </div><br>
+                <button type="submit" @click="showLogIn = false">Log In</button>
+            </form>
+        </div>
+    </div>
+
+
 </div>
-<!-- <script src="{% static 'js/script.js' %}"></script> -->
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

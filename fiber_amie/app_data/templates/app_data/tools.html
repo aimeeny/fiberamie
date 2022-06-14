@@ -11,14 +11,14 @@
     <!-- TOP NAV  -->
     <div class="topnav">
         <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
-            <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
-            <div class="modal" v-show="showMenu">
-                {% csrf_token %}
-                <a href="/settings" id="settings">Settings</a><br>
-                <a href="/logout/">Log Out</a>
-            </div>
+        <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+        <div class="modal" v-show="showMenu">
+            {% csrf_token %}
+            <a href="/settings" id="settings">Settings</a><br>
+            <a href="/logout/">Log Out</a>
+        </div>
 
-            <h1><i>tools</i></h1>
+        <h1><i>tools</i></h1>
         <img src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
@@ -75,23 +75,24 @@
         <button @click="deleteHooks(hook)" type="button">Delete</button>
     </div> -->
     <h4><i>Your needles</i></h4>
-    {% csrf_token %}
-    <table v-for="needle in needles"></table>
-        <tr>
-            <th>Size (US)</th>
-            <th>Size (mm)</th>
-            <th>Length (in)</th>
-            <th>Brand</th>
-            <th>In Use?</th>
-        </tr>
-        <tr>
-            <td>--</td>
-            <td>-</td>
-            <td>--</td>
-            <td>--</td>
-            <td>-</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Size (US)</th>
+                <th>Size (mm)</th>
+                <th>Length (in)</th>
+                <th>Brand</th>
+                <th>In Use?</th>
+            </tr>
+            <tr v-for="needle in needles">
+                <td>[[ needle.size ]]</td>
+                <td v-model="getNeedleMetric(needle.size)">[[ metric ]]</td>
+                <td>[[ needle.length ]]</td>
+                <td>[[ needle.brand ]]</td>
+                <td><input type="checkbox"></td>
+            </tr>
+        </table>
+    </div>
 
 
 

@@ -159,9 +159,19 @@
         justify-content: center;
     }
     table {
-        border: 1px solid #896283;
+        border: 2px solid #fff;
+        border-radius: 15px;
         font-family: 'Raleway', sans-serif;
-        font-size: 2rem;
-        max-width: 70%;
+        font-size: 1rem;
+        /* max-width: 70%; */
+    }
+    td {
+        background: #f4e2ea;
+    }
+    .table {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
     }
 }

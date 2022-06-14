@@ -116,6 +116,19 @@ const App = {
             this.yarn = yarn
             yarn.showDetails = false
             // this.showDetails = false
+        },
+        // EDIT SECTION 
+        editName (yarn) {
+            this.yarn = yarn
+            axios({
+                method: 'put',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${yarn.id}/`,
+                data: {
+                    name: this.name,
+                }
+            }).then(res => this.getYarnDetail())
+            .catch(error => console.log(error))
         }
     },
 }

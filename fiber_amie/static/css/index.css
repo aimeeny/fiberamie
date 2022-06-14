@@ -2,10 +2,7 @@
 
 @media screen and (min-width: 360px) {
     
-    .home img {
-        width: 3.75rem;
-        height: 3.75rem;
-    }
+
     .landing {
         display: flex;
         flex-direction: column;
@@ -66,8 +63,6 @@
     }
     a:hover {
         color:#000000;
-        
-
     }
     
     h1 {
@@ -80,60 +75,32 @@
         text-align: center;
         font-weight: 800;
     }
-
-    
-    /* HOME  */
-    
-    .home h1 {
-        font-family: 'Berkshire Swash', cursive;
-        font-size: 5rem;
-        color: #896283;
-        text-shadow: 1px 1px #383838;
-        margin-bottom: -2rem;
-        margin-top: -.5rem;
-    }
-    .home p {
-        font-family: 'Raleway', sans-serif;
-        font-size: 1rem;
-        text-align: left;
-    }
-    .topnav {
-        /* position: fixed; */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 3rem;
-        margin-bottom: 2rem;
-        padding: 0;
-        left: 0;
-        top: 0;
-        z-index: 200;
-    }
-    .topnav img {
-        height: 2.5rem;
-        width: 2.5rem;
-    }
-    .navbar {
+    .form-modal {
         position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100vw;
-        z-index: 200;
-        height: 4rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #F4E2EA;
-        border-top: 1px solid #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        width: 90%;
+        height: 90%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        border: 2px solid #896283; 
     }
-    
+    .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+    }    
     .home {
         /* margin-top: 4.25rem; */
         margin: 0;
     }
-
-
-
     body {
         max-height: 100vw;
         padding-bottom: 4rem;
@@ -141,8 +108,6 @@
         background-image: linear-gradient(#f4e2ea, #dfc8d2);
         background-attachment: fixed;
     }
-
-
 
     /* LOG IN  */
     .login h1 {
