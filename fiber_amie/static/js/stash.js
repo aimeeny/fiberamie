@@ -14,7 +14,7 @@ const App = {
             colorway: '',
             skeins: '',
             yardage: '',
-            weight: '',
+            yarn_weight: '',
             image: '',
             notes: '',
             showModal: false,
@@ -59,7 +59,7 @@ const App = {
                     colorway: this.colorway,
                     skeins: this.skeins,
                     yardage: this.yardage,
-                    weight: this.weight,
+                    yarn_weight: this.yarn_weight,
                     notes: this.notes,
                     image: this.image,
                 }
@@ -115,7 +115,6 @@ const App = {
         closeDetails (yarn) {
             this.yarn = yarn
             yarn.showDetails = false
-            // this.showDetails = false
         },
         // EDIT SECTION 
         editName (yarn) {

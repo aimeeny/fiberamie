@@ -9,8 +9,10 @@ from .forms import NewUserForm
 # USERS ------------------------------- #
 
 def index(request):
-    ...
-    return render(request, 'app_users/index.html')
+    form = NewUserForm()
+    form2 = AuthenticationForm()
+    return render(request, 'app_users/index.html', context={'sign_up_form':form, 'login_form':form2})
+    # return redirect('app_users:home', context={'sign_up_form':form, 'login_form':form2})
 
 def home(request):
     ...

@@ -17,12 +17,20 @@ class AddYarnViewSet(viewsets.ModelViewSet):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
 class AddHookViewSet(viewsets.ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+    def get_queryset(self):
+        return AddHook.objects.all().order_by('-size').filter(username = self.request.user)
     queryset = AddHook.objects.all().order_by('-size')
     serializer_class = AddHookSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
 class AddNeedleViewSet(viewsets.ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+    def get_queryset(self):
+        return AddNeedle.objects.all().order_by('-size').filter(username = self.request.user)
     queryset = AddNeedle.objects.all().order_by('-size')
     serializer_class = AddNeedleSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -35,6 +43,10 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
 class AddProjectViewSet(viewsets.ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+    def get_queryset(self):
+        return AddProject.objects.all().filter(username = self.request.user)
     queryset = AddProject.objects.all()
     serializer_class = AddProjectSerializer
     permission_classes = [permissions.IsAuthenticated]

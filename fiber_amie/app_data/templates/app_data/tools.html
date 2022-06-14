@@ -63,17 +63,8 @@
 
     <!-- TOOLS LIST  -->
     {% if user.is_authenticated %}
-    <!-- <h4><i>Your needles</i></h4>
-    <div class="tool-list" v-for="needle in needles">
-        {% csrf_token %}
-        <p>US [[ needle.size ]], [[ needle.brand ]]</p>
-        <button @click="deleteNeedles(needle)" type="button">Delete</button>
-    </div>
-    <h4><i>Your hooks</i></h4>
-    <div class="tool-list" v-for="hook in hooks">
-        <p>[[ hook.size ]] mm, [[ hook.brand ]]</p>
-        <button @click="deleteHooks(hook)" type="button">Delete</button>
-    </div> -->
+
+    <!-- NEEDLES  -->
     <h4><i>Your needles</i></h4>
     <div class="table">
         <table>
@@ -82,22 +73,36 @@
                 <th>Size (mm)</th>
                 <th>Length (in)</th>
                 <th>Brand</th>
-                <th>In Use?</th>
+                <th>Delete</th>
             </tr>
-            <tr v-for="needle in needles">
+            <tr v-for="needle in needles" :key="needle._id">
                 <td>[[ needle.size ]]</td>
-                <td v-model="getNeedleMetric(needle.size)">[[ metric ]]</td>
+                <td>[[ needle_sizes[needle.size] ]]</td> <!-- want to grab value of needle.size from sizes dictionary -->
                 <td>[[ needle.length ]]</td>
                 <td>[[ needle.brand ]]</td>
-                <td><input type="checkbox"></td>
+                <td><button @click="deleteNeedles(needle)" type="button" id="delete-needle">&#10005;</button></td>
             </tr>
         </table>
     </div>
 
-
-
+    <!-- HOOKS  -->
     <h4><i>Your hooks</i></h4>
-
+    <div class="table">
+        <table>
+            <tr>
+                <th>Size (US)</th>
+                <th>Size (mm)</th>
+                <th>Brand</th>
+                <th>Delete</th>
+            </tr>
+            <tr v-for="hook in hooks" :key="hook._id">
+                <td>[[ hook_sizes[hook.size] ]]</td>
+                <td>[[ hook.size ]]</td>
+                <td>[[ hook.brand ]]</td>
+                <td><button @click="deleteHooks(hook)" type="button" id="delete-hook">&#10005;</button></td>
+            </tr>
+        </table>
+    </div>
 
     <!-- BOTTOM NAV -->
     <div class="navbar">

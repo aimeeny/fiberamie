@@ -7,7 +7,9 @@ const App = {
     },
     delimiters: ['[[',']]'],
     methods: {
-        
+        goHome () {
+            window.location.href = '/home'
+        }
     },
 }
 const app = Vue.createApp(App)

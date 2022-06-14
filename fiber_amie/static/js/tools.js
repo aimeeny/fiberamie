@@ -15,8 +15,8 @@ const App = {
             showMenu: false,
             hooks: [],
             hook: '',
-            sizes: { 0:2.00, 1:2.25, 1.5:2.50, 2:2.75, 2.5:3.00, 3:3.25, 4:3.50, 5:3.75, 6:4.00, 7:4.50, 8:5.00, 9:5.50, 10:6.00, 10.5:6.50, 11:8.00, 13:9.00, 15:10.00, 17:12.25, 19:15-16, 35:19, 36:20, 50:25},
-            metric: '',
+            needle_sizes: { 0:2.00, 1:2.25, 1.5:2.50, 2:2.75, 2.5:3.00, 3:3.25, 4:3.50, 5:3.75, 6:4.00, 7:4.50, 8:5.00, 9:5.50, 10:6.00, 10.5:6.50, 11:8.00, 13:9.00, 15:10.00, 17:12.25, 19:15-16, 35:19, 36:20, 50:25},
+            hook_sizes: {2.25:'B-1', 2.75:'C-2', 3.25:'D-3', 3.5:'E-4', 3.75:'F-5', 4:'G-6', 4.5:7, 5:'H-8', 5.5:'I-9', 6:'J-10', 6.5:'K-10.5', 8:'L-11', 9:'M/N-13', 10:'N/P-15', 15:'P/Q', 16:'Q', 19:'S', 30:'T-30'}
             
         }
     },
@@ -60,7 +60,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/needles/',
+                url: 'http://127.0.0.1:8000/hooks/',
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -93,7 +93,7 @@ const App = {
             })
             .then(res => {
                 this.getHooks()
-                console.log(res.yarns)
+                console.log(res.hooks)
             }).catch(error => console.log(error.message))
         },
         deleteNeedles (needle) {
@@ -104,8 +104,8 @@ const App = {
                     }
             })
             .then(res => {
-                this.getHooks()
-                console.log(res.yarns)
+                this.getNeedles()
+                console.log(res.needles)
             }).catch(error => console.log(error.message))
         },
         getNeedleMetric (size) {

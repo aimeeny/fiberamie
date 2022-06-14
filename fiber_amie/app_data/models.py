@@ -12,7 +12,7 @@ class AddYarnDetailed(models.Model):
     skeins = models.PositiveIntegerField(blank=True, null=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     def __str__(self):
-        return f'{self.username}_{self.brand}_{self.name}'
+        return f'{self.username}_{self.yarn_weight}_{self.name}'
     class Meta:
         verbose_name_plural = 'Yarn'
 
