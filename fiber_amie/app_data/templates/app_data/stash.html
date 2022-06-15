@@ -76,28 +76,82 @@
                 </div>
                 <p v-else>Add an image!</p>
 
-                <h4>Brand/name</h4>
-                <p v-if="yarn.name">[[yarn.name]]</p>
-                <p v-if="yarn.colorway">colorway: [[yarn.colorway]]</p>
-                <p v-else>no data</p>
+                <h4>Brand/Name</h4>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.name">[[yarn.name]]</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.name">[[ yarn.name ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveName(yarn)">Save</span>
+                </button>
+
+                <h4>Colorway</h4>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.colorway">[[yarn.colorway]]</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.colorway">[[ yarn.colorway ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveColorway(yarn)">Save</span>
+                </button>
 
                 <h4>Fiber</h4>
-                <p v-if="yarn.fiber_type">[[yarn.fiber_type]]</p>
-                <p v-else>no fiber data</p>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.fiber_type">[[yarn.fiber_type]]</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.fiber_type">[[ yarn.fiber_type ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveFiberType(yarn)">Save</span>
+                </button>
 
-                <h4>Skeins & Yardage</h4>
-                <p v-if="yarn.skeins">[[yarn.skeins]] skein(s)</p>
-                <p v-else></p>
-                <p v-if="yarn.yardage">[[yarn.yardage]] yards</p>
-                <p v-else>no yardage data</p>
+                <h4>Skein(s)</h4>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.skeins">[[yarn.skeins]] skein(s)</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.skeins">[[ yarn.skeins ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveSkeins(yarn)">Save</span>
+                </button>
 
-                <h4>Weight</h4>
-                <p v-if="yarn.yarn_weight">[[yarn.yarn_weight]] weight</p>
-                <p v-else>no weight data</p>
+                <h4>Yardage</h4>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.yardage">[[yarn.yardage]] yards</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.yardage">[[ yarn.yardage ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveYardage(yarn)">Save</span>
+                </button>
+                
+                <h4>Weight Category</h4>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.yarn_weight">[[yarn.yarn_weight]] weight</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.yarn_weight">[[ yarn.yarn_weight ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveYarnWeight(yarn)">Save</span>
+                </button>
 
                 <h4>Notes</h4>
-                <p v-if="yarn.notes">[[yarn.notes]]</p>
-                <p else>no notes</p>
+                <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
+                <p v-if="yarn.notes">[[yarn.notes]]</p></span>
+                <div v-if="yarn.edit">
+                    <textarea v-model="yarn.notes">[[ yarn.notes ]]</textarea>
+                </div>
+                <button @click="yarn, 'edit', !yarn.edit">
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="yarn.edit" @click="saveNotes(yarn)">Save</span>
+                </button>
 
             </div>
         </div>

@@ -99,18 +99,6 @@ const App = {
         getYarnDetail (yarn) {
             this.yarn = yarn
             yarn.showDetails = true
-            // axios({
-            //     method: 'get',
-            //     headers: { Accept: 'application/json' },
-            //     url:`http://127.0.0.1:8000/yarns/${yarn.id}/`,
-            //     auth: {
-            //         username: 'username',
-            //         password: 'password'
-            //     }
-            // }).then(res => {
-            //     console.log(res.data)
-            //     this.yarn = res.data
-            // }).catch(error => console.log(error.message))
         },
         closeDetails (yarn) {
             this.yarn = yarn
@@ -128,6 +116,84 @@ const App = {
                 }
             }).then(res => this.getYarnDetail())
             .catch(error => console.log(error))
+        },
+        saveColorway (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    colorway: this.yarn.colorway,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
+        },
+        saveFiberType (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    fiber_type: this.yarn.fiber_type,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
+        },
+        saveSkeins (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    skeins: this.yarn.skeins,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
+        },
+        saveYardage (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    yardage: this.yarn.yardage,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
+        },
+        saveYarnWeight (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    weight: this.yarn.weight,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
+        },
+        saveNotes (yarn) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                data: {
+                    notes: this.yarn.notes,
+                }
+            }).then(res => {
+                this.yarn.edit = false
+                this.getYarnDetail(yarn) 
+            }).catch(error => console.log(error))
         },
     },
 }

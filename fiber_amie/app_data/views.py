@@ -24,6 +24,10 @@ def projects(request):
     return render(request, 'app_data/projects.html')
 
 @ login_required
+def counter(request):
+    return render(request, 'app_data/counter.html')
+
+@ login_required
 def yarn_detail(request, id):
     yarn = AddYarnDetailed.objects.get(id=id)
     return render(request, 'app_data/stash.html')

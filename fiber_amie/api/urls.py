@@ -8,6 +8,7 @@ router.register(r'hooks', views.AddHookViewSet)
 router.register(r'needles', views.AddNeedleViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'projects_drf', views.AddProjectViewSet)
+router.register(r'counters', views.CounterViewSet)
 
 
 

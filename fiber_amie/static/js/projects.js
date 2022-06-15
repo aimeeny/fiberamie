@@ -85,19 +85,6 @@ const App = {
         getProjectDetail (project) {
             this.project = project
             project.showDetails = true
-            // axios({
-            //     method: 'get',
-            //     headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token },
-            //     url:`http://127.0.0.1:8000/projects_drf/${project.id}/`,
-            //     auth: {
-            //         username: 'username',
-            //         password: 'password'
-            //     }
-            // }).then(res => {
-            //     console.log(res.data)
-            //     this.project = res.data
-            // this.showDetails = true
-            // }).catch(error => console.log(error.message))
         },
         closeDetails (project) {
             this.project = project
@@ -111,6 +98,110 @@ const App = {
                 url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
                 data: {
                     pattern_name: this.project.pattern_name,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveDesigner (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    designer: this.project.designer,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveNeedles (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    needles: this.project.needles,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveHook (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    hook: this.project.hook,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveGauge (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    gauge: this.project.gauge,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveYarn (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    yarn: this.project.yarn,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveColorway (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    colorway: this.project.colorway,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveYardage (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    total_yardage: this.project.total_yardage,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
+        saveNotes (project) {
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    notes: this.project.notes,
                 }
             }).then(res => {
                 this.project.edit = false

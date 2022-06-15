@@ -1,0 +1,81 @@
+{% extends 'app_users/base_layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!--COUNTER -------------------------  -->
+<link href="{% static 'css/counter.css' %}" rel="stylesheet">
+
+<div class="stash" id="app">
+    <div class="topnav">
+        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+        <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
+        <div class="modal" v-show="showMenu">
+            {% csrf_token %}
+            <a href="/settings" id="settings">Settings</a><br>
+            <a href="/logout/">Log Out</a>
+        </div>
+
+        <h1><i>counter</i></h1>
+        <img src="{% static 'images/fiber-amie-icon.png' %}">
+    </div>
+
+    <!-- <div class="modal-overlay" v-if="showForm" @click="showForm = true"></div> -->
+    <div class="counter-menu">
+        <div class="counter-form">
+            {% csrf_token %}
+            <form @submit.prevent="addCounter">
+                <label for="name">Project name</label><br>
+                <input v-model="name" type="name" id="name"><br>
+            </form>
+            <button type="submit" class="button" @click="addCounter()">
+                New Counter
+            </button>
+        </div>
+        <div class="counter-select">
+            <label for="projects">Select from existing project</label>
+            <select name="cars" id="cars">
+                <option value="name">Volvo</option>
+            </select>
+        </div>
+    </div>
+    <!-- COUNTER  -->
+    <div class="counter-container">
+        <div class="counter" @click="countUp"><span class="number">[[ count ]]</span></div>
+        <div class="minus" @click="countDown"><span>-</span></div>
+        <div class="reset"><span>Reset</span></div>
+    </div>
+
+
+    <!-- BOTTOM NAV  -->
+    <div class="navbar">
+        <div class="icon">
+            <a href="/home">
+                <img src="{% static 'images/home.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/counter">
+                <img src="{% static 'images/search.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/projects">
+                <img src="{% static 'images/projects.svg' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/stash">
+                <img src="{% static 'images/stash.png' %}">
+            </a>
+        </div>
+        <div class="icon">
+            <a href="/tools">
+                <img src="{% static 'images/needles.png' %}">
+            </a>
+        </div>
+
+    </div>
+</div>
+<script src="{% static 'js/counter.js' %}"></script>
+{% endblock %}

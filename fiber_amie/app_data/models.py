@@ -51,8 +51,16 @@ class AddProject(models.Model):
     notes = models.CharField(max_length=1000, null=True, blank=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    # count = models.ForeignKey(Counter)
     def __str__(self):
         return f'{self.username}_{self.pattern_name}'
     class Meta: 
         verbose_name_plural = "Projects"
 
+class Counter(models.Model):
+    name = models.CharField(max_length=50)
+    count = models.PositiveIntegerField(default=0)
+    project = models.ForeignKey(AddProject, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return f'{self.username}_{self.name}_counter'

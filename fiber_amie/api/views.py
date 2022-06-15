@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from app_data.models import AddYarnDetailed, AddHook, AddNeedle, AddProject
+from app_data.models import AddYarnDetailed, AddHook, AddNeedle, AddProject, Counter
 from rest_framework import viewsets, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNeedleSerializer, UserSerializer, AddProjectSerializer
+from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNeedleSerializer, UserSerializer, AddProjectSerializer, CounterSerializer
 from django.contrib.auth.models import User
 
 class AddYarnViewSet(viewsets.ModelViewSet):
@@ -49,6 +49,16 @@ class AddProjectViewSet(viewsets.ModelViewSet):
         return AddProject.objects.all().filter(username = self.request.user)
     queryset = AddProject.objects.all()
     serializer_class = AddProjectSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+class CounterViewSet(viewsets.ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+    def get_queryset(self):
+        return Counter.objects.all().filter(username = self.request.user)
+    queryset = Counter.objects.all()
+    serializer_class = CounterSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 

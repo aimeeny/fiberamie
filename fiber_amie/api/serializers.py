@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from app_data.models import AddYarnBasic, AddYarnDetailed, AddHook, AddNeedle, AddProject
+from app_data.models import AddYarnBasic, AddYarnDetailed, AddHook, AddNeedle, AddProject, Counter
 from django.contrib.auth.models import User
 
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):
@@ -29,6 +29,10 @@ class AddProjectSerializer(serializers.HyperlinkedModelSerializer):
         model = AddProject
         fields = ['id', 'pattern_name', 'designer', 'needles', 'hook', 'gauge', 'yarn', 'colorway', 'total_yardage', 'notes', 'image', 'username']
 
+class CounterSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Counter
+        fields = ['id', 'name', 'count', 'username']
 # class AddCrochetProjectSerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
 #         model = AddCrochetProject
