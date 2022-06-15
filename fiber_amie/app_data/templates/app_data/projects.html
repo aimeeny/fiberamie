@@ -84,11 +84,21 @@
                     Back
                 </button>
                 <div v-if="project.image">
-                    <img v-else class="cover" id="project-detail-img" :src="[[ project.image ]]">
+                    <img class="cover" id="project-detail-img" :src="[[ project.image ]]">
                 </div>
                 <p v-else>Add an image!</p>
 
-                <h4>[[ project.pattern_name ]]</h4>
+                <span v-if="!project.edit" @click="project['edit'] = !project.edit">
+                    <h4>[[ project.pattern_name ]]</h4>
+                </span>
+                <div v-if="project.edit">
+                    <textarea v-model="project.pattern_name">[[ project.pattern_name ]]</textarea>
+                </div>
+                <button @click="project, 'edit', !project.edit">
+                    <span v-if="!project.edit" @click="project.edit = !project.edit">Edit</span>
+                    <span v-if="project.edit" @click="saveName(project)">Save</span>
+                </button>
+
                 <p v-if="project.designer">Designed by [[ project.designer ]]</p>
                 <p v-else>no data</p>
 

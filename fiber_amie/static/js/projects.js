@@ -102,7 +102,21 @@ const App = {
         closeDetails (project) {
             this.project = project
             project.showDetails = false
-        }
+        },
+        saveName (project) {
+            // this.project = project
+            axios({
+                method: 'patch',
+                headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
+                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                data: {
+                    pattern_name: this.project.pattern_name,
+                }
+            }).then(res => {
+                this.project.edit = false
+                this.getProjectDetail(project) 
+            }).catch(error => console.log(error))
+        },
     },
 }
 const app = Vue.createApp(App)

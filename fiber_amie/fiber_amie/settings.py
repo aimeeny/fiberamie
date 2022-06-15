@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'app_data.apps.AppDataConfig',
     'api.apps.ApiConfig',
     'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [

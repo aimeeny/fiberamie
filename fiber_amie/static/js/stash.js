@@ -117,10 +117,10 @@ const App = {
             yarn.showDetails = false
         },
         // EDIT SECTION 
-        editName (yarn) {
+        saveName (yarn) {
             this.yarn = yarn
             axios({
-                method: 'put',
+                method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
                 url: `http://127.0.0.1:8000/yarns/${yarn.id}/`,
                 data: {
@@ -128,7 +128,7 @@ const App = {
                 }
             }).then(res => this.getYarnDetail())
             .catch(error => console.log(error))
-        }
+        },
     },
 }
 const app = Vue.createApp(App)

@@ -1,6 +1,7 @@
 {% extends 'app_users/base_layout.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block content %}
 
 <!-- LANDING -------------------------  -->
@@ -18,9 +19,20 @@
     </button>
     <div class="modal-overlay" v-if="showSignUp" @click="showSignUp = false"></div>
     <div class="form-modal" v-show="showSignUp">
-        <form method="POST">
+        <form method="POST" action="{% url 'app_users:sign-up' %}">
             {% csrf_token %}
-            {{ sign_up_form|crispy }}
+            <!-- {{ sign_up_form|crispy }} -->
+            <label>First name: </label><br>
+            {{ sign_up_form.first_name }}<br>
+            <label>Last name: </label><br>
+            {{ sign_up_form.last_name }}<br>
+            <label>Username: </label><br>
+            {{ sign_up_form.username }}<br>
+            <label>Email: </label><br>
+            {{ sign_up_form.email }}<br>
+            <label type="password">Password: </label><br>
+            <input type="password">{{ sign_up_form.password }}<br>
+            <br>
             <button type="submit" @click="showSignUp = false">Sign Up</button>
         </form>
     </div>
@@ -32,7 +44,7 @@
     <div class="modal-overlay" v-if="showLogIn" @click="showLogIn = false"></div>
     <div class="form-modal" v-show="showLogIn">
         <div class="login-form-container">
-            <form method="POST">
+            <form method="POST" action="{% url 'app_users:log-in' %}">
                 {% csrf_token %}
                 <div class="login-form">
                     <label>Username:</label><br>
@@ -42,7 +54,7 @@
                     <label>Password:</label><br>
                     {{ login_form.password }}
                 </div><br>
-                <button type="submit" @click="showLogIn = false">Log In</button>
+                    <button type="submit" @click="showLogIn = false">Log In</button>
             </form>
         </div>
     </div>
