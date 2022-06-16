@@ -4,8 +4,7 @@
     body {
         max-height: 100vw;
         padding-bottom: 4rem;
-        /* background-color: #F4E2EA; */
-        background-image: linear-gradient(#f4e2ea, #dfc8d2);
+        background-image: linear-gradient(#f4e2ea, #b299a4);
         background-attachment: fixed;
     }
     .projects {
@@ -22,7 +21,6 @@
         font-weight: 800;
     }
     .topnav {
-        /* position: fixed; */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -49,6 +47,14 @@
         justify-content: space-between;
         background-color: #F4E2EA;
         border-top: 1px solid #fff;
+        /* overflow: none; */
+    }
+    img {
+        height: 4rem;
+        width: 4rem;
+    }
+    .projects-icon {
+        background: #dfc8d2;
     }
      /* MODAL FORM  */
     .modal-overlay {

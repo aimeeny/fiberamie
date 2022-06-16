@@ -1,1 +1,33 @@
-<?xml version="1.0"?><svg fill="#737373" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px">    <path d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 144 144" style="enable-background:new 0 0 144 144;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#383838;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#896283;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#896283;stroke-width:6;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#383838;stroke-width:6;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#383838;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#896283;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+	.st7{fill:none;stroke:#383838;stroke-width:3;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#896283;stroke-width:3;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#383838;stroke-width:9;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#896283;stroke-width:9;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#383838;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#896283;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st13{fill:none;stroke:#383838;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st14{fill:none;stroke:#896283;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st15{fill:#383838;}
+	.st16{fill:#896283;}
+	.st17{fill:#383838;stroke:#383838;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st18{fill:#896283;stroke:#896283;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st19{fill:#FFFFFF;stroke:#383838;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st20{fill:#FFFFFF;stroke:#896283;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st21{fill:#383838;stroke:#383838;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st22{fill:#383838;stroke:#896283;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<polygon class="st0" points="72.38,17.72 122,67.48 114.33,67.76 114.54,81.71 114.81,117.72 55.56,117.72 28.84,117.72 
+	29.05,67.55 22,67.62 "/>
+<rect x="61.75" y="80.36" class="st4" width="20.5" height="36"/>
+</svg>

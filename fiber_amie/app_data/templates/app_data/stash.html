@@ -55,6 +55,14 @@
     <h4><i>Your current stash</i></h4>
     <div class="yarn-list">
         <div class="yarn-card" v-for="yarn in yarns">
+            <!-- <div class="lace" v-if="yarn.yarn_weight == 'lace'"><h4>Lace</h4>[[ yarn.name ]]</div>
+            <div class="fingering"></div>
+            <div class="dk"></div>
+            <div class="worsted"></div>
+            <div class="bulky"></div>
+            <div class="super-bulky"></div>
+            <div class="jumbo"></div> -->
+
             <div class="yarn-image">
                 <img class="cover" id="stash-img" :src="[[ yarn.image ]]"
                     @click="getYarnDetail(yarn); showDetails = true"><br>
@@ -66,6 +74,7 @@
                 <button @click="deleteYarn(yarn)" type="button" id="delete-yarn">&#10005;</button>
             </div>
         </div>
+
         <div class="yarn-modal" v-show="yarn.showDetails">
             <div class="stash-overflow">
                 <button class="button" @click="closeDetails">
@@ -166,7 +175,7 @@
         </div>
         <div class="icon">
             <a href="/counter">
-                <img src="{% static 'images/search.svg' %}">
+                <img src="{% static 'images/counter.svg' %}">
             </a>
         </div>
         <div class="icon">
@@ -174,14 +183,14 @@
                 <img src="{% static 'images/projects.svg' %}">
             </a>
         </div>
-        <div class="icon">
+        <div class="stash-icon">
             <a href="/stash">
-                <img src="{% static 'images/stash.png' %}">
+                <img src="{% static 'images/stashactive.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
-                <img src="{% static 'images/needles.png' %}">
+                <img src="{% static 'images/tools.svg' %}">
             </a>
         </div>
 

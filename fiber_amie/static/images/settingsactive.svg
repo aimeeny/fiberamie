@@ -27,14 +27,14 @@
 	.st21{fill:#896283;stroke:#383838;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st22{fill:#DFC8D2;stroke:#383838;stroke-width:6;stroke-miterlimit:10;}
 </style>
-<ellipse class="st5" cx="72" cy="72" rx="38.5" ry="38.75"/>
-<circle class="st5" cx="72" cy="72" r="23.5"/>
-<rect x="62.34" y="21" class="st14" width="19.32" height="11.69"/>
-<rect x="62.34" y="111.31" class="st14" width="19.32" height="11.69"/>
-<polygon class="st14" points="35.71,51.79 27.4,43.52 41.06,29.94 49.37,38.2 "/>
-<polygon class="st14" points="49.37,105.23 41.06,113.49 27.4,99.91 35.71,91.65 "/>
-<rect x="17.78" y="66.12" transform="matrix(6.123234e-17 -1 1 6.123234e-17 -44.6203 99.3797)" class="st14" width="19.21" height="11.76"/>
-<rect x="107.02" y="66.12" transform="matrix(6.123234e-17 -1 1 6.123234e-17 44.6203 188.6203)" class="st14" width="19.21" height="11.76"/>
-<polygon class="st14" points="106.56,91.87 114.43,99.69 100.77,113.27 92.9,105.45 "/>
-<polygon class="st14" points="94.57,38.2 102.89,29.94 116.55,43.52 108.23,51.79 "/>
+<ellipse class="st4" cx="72" cy="72" rx="38.5" ry="38.75"/>
+<circle class="st6" cx="72" cy="72" r="23.5"/>
+<rect x="62.34" y="21" class="st16" width="19.32" height="11.69"/>
+<rect x="62.34" y="111.31" class="st16" width="19.32" height="11.69"/>
+<polygon class="st16" points="35.71,51.79 27.4,43.52 41.06,29.94 49.37,38.2 "/>
+<polygon class="st16" points="49.37,105.23 41.06,113.49 27.4,99.91 35.71,91.65 "/>
+<rect x="17.78" y="66.12" transform="matrix(6.123234e-17 -1 1 6.123234e-17 -44.6203 99.3797)" class="st16" width="19.21" height="11.76"/>
+<rect x="107.02" y="66.12" transform="matrix(6.123234e-17 -1 1 6.123234e-17 44.6203 188.6203)" class="st16" width="19.21" height="11.76"/>
+<polygon class="st16" points="106.56,91.87 114.43,99.69 100.77,113.27 92.9,105.45 "/>
+<polygon class="st16" points="94.57,38.2 102.89,29.94 116.55,43.52 108.23,51.79 "/>
 </svg>
