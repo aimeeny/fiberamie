@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class AddYarnDetailed(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=True, null=True)
     fiber_type = models.CharField(max_length=50, blank=True)
     colorway = models.CharField(max_length=50, blank=True)
     yardage = models.PositiveIntegerField(blank=True)
@@ -16,11 +16,8 @@ class AddYarnDetailed(models.Model):
     class Meta:
         verbose_name_plural = 'Yarn'
 
-class AddYarnBasic(models.Model):
-    ...
-
 class AddHook(models.Model):
-    size = models.CharField(max_length=10)
+    size = models.CharField(max_length=10, blank=True, null=True)
     brand = models.CharField(max_length=50, blank=True, null=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     def __str__(self):
@@ -29,7 +26,7 @@ class AddHook(models.Model):
         verbose_name_plural = 'Hooks'
 
 class AddNeedle(models.Model):
-    size = models.PositiveIntegerField() # US size
+    size = models.PositiveIntegerField(blank=True, null=True) # US size
     length = models.PositiveIntegerField(null=True, blank=True) # in inches
     brand = models.CharField(max_length=50, null=True, blank=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -39,7 +36,7 @@ class AddNeedle(models.Model):
         verbose_name_plural = 'Needles'
 
 class AddProject(models.Model):
-    pattern_name = models.CharField(max_length=50)
+    pattern_name = models.CharField(max_length=50, null=True, blank=True)
     designer = models.CharField(max_length=50, null=True, blank=True)
     needles = models.CharField(max_length=50, null=True, blank=True)
     hook = models.CharField(max_length=50, null=True, blank=True)
@@ -60,7 +57,7 @@ class AddProject(models.Model):
 class Counter(models.Model):
     name = models.CharField(max_length=50)
     count = models.PositiveIntegerField(default=0)
-    project = models.ForeignKey(AddProject, on_delete=models.CASCADE)
+    # project = models.ForeignKey(AddProject, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return f'{self.username}_{self.name}_counter'

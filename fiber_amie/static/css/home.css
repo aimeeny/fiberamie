@@ -113,3 +113,69 @@
 
 
 }
+
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 80rem;
+        /* width: 80rem; */
+        margin: auto;
+        /* padding-bottom: 4rem; */
+        /* background-color: #F4E2EA; */
+        background-image: linear-gradient(#f4e2ea, #dfc8d2);
+        background-attachment: fixed;
+    }
+    .home {
+        margin-bottom: 5rem;
+    }
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #896283;
+        text-shadow: 1px 1px #383838;
+        margin-bottom: .25rem;
+        margin-top: -.5rem;
+        text-align: center;
+        font-weight: 800;
+    }
+    .topnav {
+        /* position: fixed; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 3rem;
+        margin-bottom: 2rem;
+        padding: 0;
+        left: 0;
+        top: 0;
+        z-index: 200;
+    }
+    .topnav img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .navbar {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        z-index: 200;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #F4E2EA;
+        border-top: 1px solid #fff;
+    }
+    h4 {
+        font-family: 'Noto Sans', sans-serif;
+        
+    }
+    p {
+        font-family: 'Noto Sans', sans-serif; 
+    }
+    img {
+        height: 4rem;
+        width: 4rem;
+    }
+
+}

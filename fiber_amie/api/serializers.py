@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from app_data.models import AddYarnBasic, AddYarnDetailed, AddHook, AddNeedle, AddProject, Counter
+from app_data.models import AddYarnDetailed, AddHook, AddNeedle, AddProject, Counter
 from django.contrib.auth.models import User
 
 class AddYarnDetailedSerializer(serializers.HyperlinkedModelSerializer):

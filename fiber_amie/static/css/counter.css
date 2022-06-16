@@ -111,18 +111,18 @@
         align-items: center;
         cursor: pointer;
     }
-    .minus, .reset {
+    .minus, .reset, .delete {
         font-family: 'Noto Sans', sans-serif;
         font-weight: 600;
         color: #383838;
-        font-size: 2rem;
+        font-size: 1.6rem;
         outline: none;
         border: none;
         background: #dfc8d2;
         cursor: pointer;
         display: inline-block;
         width: 7rem;
-        height: 4rem;
+        height: 2.25rem;
         padding: .5rem;
         box-shadow: 3px 3px #896283;
         transition: .4s ease-out; 
@@ -131,15 +131,29 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: .5rem;
     }
 
     /* NEW COUNTER FORM  */
-    .counter-form {
+    .counter-form, .counter-select, label, button, .delete {
         font-family: 'Noto Sans', sans-serif;
+        font-size: .8rem;
+    }
+    .counter-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .counter-select {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
     }
     .counter-menu {
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
 

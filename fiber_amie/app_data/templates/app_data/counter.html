@@ -25,25 +25,29 @@
         <div class="counter-form">
             {% csrf_token %}
             <form @submit.prevent="addCounter">
-                <label for="name">Project name</label><br>
-                <input v-model="name" type="name" id="name"><br>
+                <!-- <label for="name">Project name</label><br> -->
+                <input v-model="name" type="name" id="name" placeholder="Enter new counter name"><br>
             </form>
             <button type="submit" class="button" @click="addCounter()">
                 New Counter
             </button>
         </div>
         <div class="counter-select">
-            <label for="projects">Select from existing project</label>
-            <select name="cars" id="cars">
-                <option value="name">Volvo</option>
+            <label for="project-counter">Select from existing counter:</label>
+            <select name="project-counter" id="project-counter" v-model="counter">
+                <option :value="c" v-for="c in counters">[[ c.name ]]</option>
             </select>
         </div>
     </div>
+
     <!-- COUNTER  -->
     <div class="counter-container">
-        <div class="counter" @click="countUp"><span class="number">[[ count ]]</span></div>
-        <div class="minus" @click="countDown"><span>-</span></div>
-        <div class="reset"><span>Reset</span></div>
+        <div class="counter" @click="countUp(counter)"><span class="number">[[ counter.count ]]</span></div>
+        <div class="minus" @click="countDown(counter)"><span>-</span></div>
+        <div class="reset" @click="reset(counter)"><span>Reset</span></div>
+    </div>
+    <div class="delete-section">
+        <div class="delete" @click="deleteCounter(counter)"><span>Delete</span></div>
     </div>
 
 

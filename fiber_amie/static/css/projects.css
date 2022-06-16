@@ -75,7 +75,12 @@
     .modal input {
         margin-bottom: .5rem;
     }
-
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .project-card {
         display: flex;
         flex-direction: row;
@@ -90,6 +95,11 @@
         align-items: center;
         text-align: center;
         margin: .25rem;
+    }
+    .project-image {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
     }
     .project-card-inner {
         display: flex;
