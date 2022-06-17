@@ -22,11 +22,15 @@ const App = {
             showDetails: false,
             user: '',
             username: '',
+            search: '',
             
         }
     },
     mounted() {
         this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        this.getStash()
+    },
+    created() {
         this.getStash()
     },
     delimiters: ['[[',']]'],
@@ -35,7 +39,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/yarns/',
+                url: `http://127.0.0.1:8000/yarns/?search=${this.search}`,
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -194,6 +198,10 @@ const App = {
                 this.yarn.edit = false
                 this.getYarnDetail(yarn) 
             }).catch(error => console.log(error))
+        },
+        submitSearch () {
+            console.log(this.search)
+            this.getStash()
         },
     },
 }

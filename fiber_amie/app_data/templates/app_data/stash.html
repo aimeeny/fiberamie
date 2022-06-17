@@ -39,11 +39,20 @@
             <label for="yardage">Total Yardage</label><br>
             <input v-model="yardage" type="yardage" id="yardage"><br>
             <label for="yarn_weight">Yarn Weight/Category</label><br>
-            <input v-model="yarn_weight" type="yarn_weight" id="yarn_weight"><br>
-            <label for="image">Image</label><br>
-            <input @change="imageSelected" type="file" id="image"><br>
-            <label for="notes">Notes</label><br>
-            <input v-model="notes" type="notes" id="notes"><br>
+            <select v-model="yarn_weight" id="yarn_weight">
+                <option value="lace">Lace</option>
+                <option value="fingering">Fingering</option>
+                <option value="sport">Sport</option>
+                <option value="dk">DK</option>
+                <option value="worsted">Worsted/Aran</option>
+                <option value="bulky">Bulky</option>
+                <option value="super-bulky">Super Bulky</option>
+                <option value="jumbo">Jumbo</option><br>
+                <br>
+                <label for="image">Image</label><br>
+                <input @change="imageSelected" type="file" id="image"><br>
+                <label for="notes">Notes</label><br>
+                <input v-model="notes" type="notes" id="notes"><br>
         </form>
         <button type="submit" class="button" @click="showModal = false; addYarn()">
             Submit
@@ -53,15 +62,17 @@
     {% if user.is_authenticated %}
     <!-- STASH LIST  -->
     <h4><i>Your current stash</i></h4>
+
+    <!-- search  -->
+    <div class="search">
+        <form @submit.prevent="submitSearch">
+            <input type="text" v-model="search">
+            <button class="search-button" @click="submitSearch">Search</button>
+        </form>
+    </div>
+
     <div class="yarn-list">
         <div class="yarn-card" v-for="yarn in yarns">
-            <!-- <div class="lace" v-if="yarn.yarn_weight == 'lace'"><h4>Lace</h4>[[ yarn.name ]]</div>
-            <div class="fingering"></div>
-            <div class="dk"></div>
-            <div class="worsted"></div>
-            <div class="bulky"></div>
-            <div class="super-bulky"></div>
-            <div class="jumbo"></div> -->
 
             <div class="yarn-image">
                 <img class="cover" id="stash-img" :src="[[ yarn.image ]]"
@@ -75,6 +86,7 @@
             </div>
         </div>
 
+        <!-- DETAILS MODAL  -->
         <div class="yarn-modal" v-show="yarn.showDetails">
             <div class="stash-overflow">
                 <button class="button" @click="closeDetails">
@@ -87,7 +99,8 @@
 
                 <h4>Brand/Name</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.name">[[yarn.name]]</p></span>
+                    <p v-if="yarn.name">[[yarn.name]]</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.name">[[ yarn.name ]]</textarea>
                 </div>
@@ -98,7 +111,8 @@
 
                 <h4>Colorway</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.colorway">[[yarn.colorway]]</p></span>
+                    <p v-if="yarn.colorway">[[yarn.colorway]]</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.colorway">[[ yarn.colorway ]]</textarea>
                 </div>
@@ -109,7 +123,8 @@
 
                 <h4>Fiber</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.fiber_type">[[yarn.fiber_type]]</p></span>
+                    <p v-if="yarn.fiber_type">[[yarn.fiber_type]]</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.fiber_type">[[ yarn.fiber_type ]]</textarea>
                 </div>
@@ -120,7 +135,8 @@
 
                 <h4>Skein(s)</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.skeins">[[yarn.skeins]] skein(s)</p></span>
+                    <p v-if="yarn.skeins">[[yarn.skeins]] skein(s)</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.skeins">[[ yarn.skeins ]]</textarea>
                 </div>
@@ -131,7 +147,8 @@
 
                 <h4>Yardage</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.yardage">[[yarn.yardage]] yards</p></span>
+                    <p v-if="yarn.yardage">[[yarn.yardage]] yards</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.yardage">[[ yarn.yardage ]]</textarea>
                 </div>
@@ -139,10 +156,11 @@
                     <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
                     <span v-if="yarn.edit" @click="saveYardage(yarn)">Save</span>
                 </button>
-                
+
                 <h4>Weight Category</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.yarn_weight">[[yarn.yarn_weight]] weight</p></span>
+                    <p v-if="yarn.yarn_weight">[[yarn.yarn_weight]] weight</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.yarn_weight">[[ yarn.yarn_weight ]]</textarea>
                 </div>
@@ -153,7 +171,8 @@
 
                 <h4>Notes</h4>
                 <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">
-                <p v-if="yarn.notes">[[yarn.notes]]</p></span>
+                    <p v-if="yarn.notes">[[yarn.notes]]</p>
+                </span>
                 <div v-if="yarn.edit">
                     <textarea v-model="yarn.notes">[[ yarn.notes ]]</textarea>
                 </div>

@@ -90,8 +90,7 @@
     .project-card {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: left;
         padding: 1rem;
         border: 2px solid #fff;
         width: 87%;
@@ -102,30 +101,33 @@
         text-align: center;
         margin: .25rem;
     }
-    .project-image {
+    /* .project-image {
         display: flex;
         flex-direction: row;
         justify-content: left;
-    }
+    } */
     .project-card-inner {
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: right;
+        width: 80%;
     }
     #delete-project {
         font-family: 'Noto Sans', sans-serif;
         background: #896283;
         color:#fff;
         border: none;
-        padding: .4rem;
+        margin: auto;
+        padding: .2rem;
         border-radius: 10px;
-        margin: .5rem;
         cursor: pointer;
+        min-width: 20%;
+        max-width: 20%;
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
-        
+        font-size: .9rem;
     }
     p {
         font-family: 'Noto Sans', sans-serif; 
@@ -209,11 +211,22 @@
         max-height: 100%;
         overflow-y: scroll;
     }
-    .project-details {
+    #p-details {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: .7rem;
+    }
+    #edit {
+        background: none;
+        outline: none;
+    }
+    .project-info > p {
+        font-size: .7rem !important;
+    }
+    /* .project-details {
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
+    } */
     #project-detail-img {
         height: 15rem;
         width: 15rem;

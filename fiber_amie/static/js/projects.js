@@ -17,6 +17,7 @@ const App = {
             total_yardage: '',
             notes: '',
             image: '',
+            search: '',
             showModal: false,
             showMenu: false, 
             showDetails: false,
@@ -28,18 +29,22 @@ const App = {
         this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
         this.getProjects()
     },
+    created() {
+        this.getProjects()
+    },
     delimiters: ['[[',']]'],
     methods: {
         getProjects () {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/projects_drf/',
+                url: `http://127.0.0.1:8000/projects_drf/?search=${this.search}`,
                 auth: {
                     username: 'username',
                     password: 'password'
-                }
+                },
             }).then(res => {
+                console.log(res.data)
                 this.projects = res.data
             }).catch(error => console.log(error.message))
         },
@@ -207,6 +212,10 @@ const App = {
                 this.project.edit = false
                 this.getProjectDetail(project) 
             }).catch(error => console.log(error))
+        },
+        submitSearch () {
+            console.log(this.search)
+            this.getProjects()
         },
     },
 }

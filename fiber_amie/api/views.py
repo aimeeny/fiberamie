@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app_data.models import AddYarnDetailed, AddHook, AddNeedle, AddProject, Counter
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, filters
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from api.serializers import AddYarnDetailedSerializer, AddHookSerializer, AddNeedleSerializer, UserSerializer, AddProjectSerializer, CounterSerializer
 from django.contrib.auth.models import User
@@ -15,6 +15,8 @@ class AddYarnViewSet(viewsets.ModelViewSet):
     serializer_class = AddYarnDetailedSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'fiber_type', 'colorway', 'yarn_weight')
 
 class AddHookViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
@@ -51,6 +53,8 @@ class AddProjectViewSet(viewsets.ModelViewSet):
     serializer_class = AddProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('pattern_name', 'designer', 'yarn', 'colorway')
 
 class CounterViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
@@ -62,9 +66,4 @@ class CounterViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
-# class AddCrochetProjectViewSet(viewsets.ModelViewSet):
-#     queryset = AddCrochetProject.objects.all()
-#     serializer_class = AddCrochetProjectSerializer
-#     permission_classes = [permissions.IsAuthenticated]
-#     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
