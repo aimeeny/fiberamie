@@ -34,6 +34,10 @@
         height: 2.5rem;
         width: 2.5rem;
     }
+    img {
+        height: 4rem;
+        width: 4rem;
+    }
     .navbar {
         position: fixed;
         left: 0;
@@ -57,7 +61,10 @@
         font-weight: 500;
         padding: .5rem;
     }
-    .settings h4 {
+    label {
+        font-family: 'Noto Sans', sans-serif;
+    }
+    .settings h4, p {
         font-family: 'Noto Sans', sans-serif;
     }
     .settings-menu {
@@ -69,8 +76,11 @@
         background: #fff;
     }
     .settings-container {
-        background: #fff;
-        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
         padding: 1rem;
     }
 

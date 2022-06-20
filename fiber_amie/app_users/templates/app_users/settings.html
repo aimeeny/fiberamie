@@ -11,17 +11,43 @@
 
     <!-- do click events to toggle each section -->
 
-    <div class="settings-menu">
+    <!-- <div class="settings-menu">
         <a href="preferences/" id="preferences">Preferences</a>
-        <a href="access-settings/">Accessibility</a>
-    </div>
+        <a href="access-settings/">About</a>
+    </div> -->
 
     <div class="settings-container">
-        <h4>Color Theme</h4>
-        <h4>Color Theme</h4>
-        <h4>Color Theme</h4>
-        <h4>Color Theme</h4>
-        <h4>Color Theme</h4>
+        <h4>Theme Options</h4><br>
+        <div class="settings-inner">
+            <input type="checkbox" name="high-contrast" value="high-contrast">
+            <label for="high-constrast">High constrast</label><br>
+        </div>
+        <div class="settings-inner">
+            <input type="checkbox" name="low-contrast" value="low-contrast" checked>
+            <label for="low-contrast">Low constrast</label><br><br>
+        </div>
+        <div class="settings-inner">
+            <input type="checkbox" name="purple" value="purple" checked>
+            <label for="purple">Purple/pink</label><br>
+        </div>
+        <div class="settings-inner">
+            <input type="checkbox" name="sage" value="sage">
+            <label for="sage">Sage/green</label><br><br>
+        </div>
+        <div class="settings-inner">
+            <input type="checkbox" name="standard" value="standard" checked>
+            <label for="standard">Standard font size</label><br>
+        </div>
+        <div class="settings-inner">
+            <input type="checkbox" name="large" value="large">
+            <label for="large">Large font size</label><br>
+        </div>
+
+        <h4>About</h4>
+        <p>
+            Fiber Amie version 1.0<br>
+            Created by Aimee Young &copy; 2022
+        </p>
     </div>
 
 
@@ -33,7 +59,7 @@
         </div>
         <div class="icon">
             <a href="/search">
-                <img src="{% static 'images/search.svg' %}">
+                <img src="{% static 'images/counter.svg' %}">
             </a>
         </div>
         <div class="icon">
@@ -43,12 +69,12 @@
         </div>
         <div class="icon">
             <a href="/stash">
-                <img src="{% static 'images/stash.png' %}">
+                <img src="{% static 'images/stash.svg' %}">
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
-                <img src="{% static 'images/needles.png' %}">
+                <img src="{% static 'images/tools.svg' %}">
             </a>
         </div>
 
