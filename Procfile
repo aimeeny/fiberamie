@@ -1,2 +1,2 @@
-web: cd fiber_amie && waitress-serve --port=$PORT fiber_amie.wsgi:application
+web: cd fiber_amie && gunicorn fiber_amie.wsgi
 release: cd fiber_amie && python manage.py migrate
