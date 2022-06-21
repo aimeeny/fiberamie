@@ -14,7 +14,7 @@ from pathlib import Path
 from rest_framework import authtoken
 import environ
 import os
-
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'app_data.apps.AppDataConfig',
     'api.apps.ApiConfig',
     'crispy_forms',
-    # 'django-filters',
+    'cloudinary_storage',
+    'cloudinary',
     
 ]
 
@@ -99,6 +100,7 @@ DATABASES = {
         'USER': env('DATABASE_USER'),
     }
 }
+DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ( 
@@ -154,6 +156,7 @@ else:
   STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
