@@ -124,11 +124,11 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhty8fm4c', 
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET'),
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dhty8fm4c', 
+#     'API_KEY': env('API_KEY'),
+#     'API_SECRET': env('API_SECRET'),
+# }
 
 
 # Password validation
