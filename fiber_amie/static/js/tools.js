@@ -31,7 +31,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/needles/',
+                url: '/needles/',
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -45,7 +45,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token },
-                url: 'http://127.0.0.1:8000/needles/',
+                url: '/needles/',
                 data: {
                     size: this.size,
                     length: this.length,
@@ -60,7 +60,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/hooks/',
+                url: '/hooks/',
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -74,7 +74,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token },
-                url: 'http://127.0.0.1:8000/hooks/',
+                url: '/hooks/',
                 data: {
                     size: this.size,
                     brand: this.brand,
@@ -85,7 +85,7 @@ const App = {
             this.size = ''
         },
         deleteHooks (hook) {
-            axios.delete(`http://127.0.0.1:8000/hooks/${hook.id}/`, {
+            axios.delete(`/hooks/${hook.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
                         password: 'password'
@@ -97,7 +97,7 @@ const App = {
             }).catch(error => console.log(error.message))
         },
         deleteNeedles (needle) {
-            axios.delete(`http://127.0.0.1:8000/needles/${needle.id}/`, {
+            axios.delete(`/needles/${needle.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
                         password: 'password'

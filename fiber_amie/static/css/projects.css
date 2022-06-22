@@ -157,6 +157,8 @@
         box-shadow: 3px 3px #896283;
         transition: .4s ease-out; 
         border-radius: 15px;
+        color: #383838;
+        font-weight: 500;
     }
     .button:hover {
         background: #fbebf2;
@@ -233,6 +235,100 @@
         margin-right: .3rem;
         margin-top: .3rem;
         border: 2px solid #dfc8d2;
+    }
+    #settings-desktop {
+        display: none;
+    }
+}
+
+/* BIG SCREENS ------------------------- */
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 50rem;
+        /* width: 40rem; */
+        margin: auto;        
+        background-image: linear-gradient(#f4e2ea, #b299a4);
+        background-attachment: fixed;
+        padding-top: 7rem;
+    }
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 6rem;
+        color: #896283;
+        text-shadow: 1px 1px #383838;
+        margin-bottom: .25rem;
+        margin-top: -.5rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-weight: 800;
+    }
+    .topnav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 5rem;
+    }
+    .topnav img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    /* NAV BAR  */
+    .navbar {
+        position: fixed;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 60rem;
+        z-index: 200;
+        height: 6rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #F4E2EA;
+        border-bottom: 1px solid #fff;
+    }
+    .icon {
+        display: flex; 
+        flex-direction: column;
+    }
+    #nav-text {
+        margin-top: -.8rem;
+        font-size: 1.5rem;
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+    a {
+        text-decoration: none;
+        color: #383838;
+    }
+    a:hover {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        text-decoration: none;
+        color: #896283;
+        font-style: italic;
+        transition: .5s;
+    }
+    p {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 1.5rem; 
         
+    }
+    h4 {
+        font-family: 'Noto Sans', sans-serif;
+    }
+    img {
+        height: 4rem;
+        width: 4rem;
+    }
+    #settings-mobile, #mini-logo {
+        display: none;
+    }
+    #settings-desktop {
+        display: revert;
+    }
+    .button {
+        font-size: 1.5rem;
     }
 }

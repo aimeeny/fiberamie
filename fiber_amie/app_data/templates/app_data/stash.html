@@ -8,16 +8,16 @@
 
 <div class="stash" id="app">
     <div class="topnav">
-        <img @click="showMenu = true" src="{% static 'images/settings.svg' %}">
+        <img @click="showMenu = true" id="settings-mobile" src="{% static 'images/settings.svg' %}">
         <div class="menu-overlay" v-if="showMenu" @click="showMenu = false"></div>
         <div class="modal" v-show="showMenu">
             {% csrf_token %}
             <a href="/settings" id="settings">Settings</a><br>
             <a href="/logout/">Log Out</a>
         </div>
-
+        <!-- <img id="logo" src="{% static 'images/text-logo.png' %}"> -->
         <h1><i>stash</i></h1>
-        <img src="{% static 'images/fiber-amie-icon.png' %}">
+        <img id="mini-logo" src="{% static 'images/fiber-amie-icon.png' %}">
     </div>
 
     <!-- ADD YARN BUTTON AND FORM  -->
@@ -61,10 +61,10 @@
 
     {% if user.is_authenticated %}
     <!-- STASH LIST  -->
-    <h4><i>Your current stash</i></h4>
 
     <!-- search  -->
     <div class="search">
+        <h4><i>Your current stash</i></h4>
         <form @submit.prevent="submitSearch">
             <input type="text" v-model="search">
             <button class="search-button" @click="submitSearch">Search</button>
@@ -187,33 +187,44 @@
     {% endif %}
     <!-- BOTTOM NAV  -->
     <div class="navbar">
-        <div class="icon">
+        <div class="home-icon">
             <a href="/home">
                 <img src="{% static 'images/home.svg' %}">
+                <p id="nav-text">Home</p>
             </a>
         </div>
         <div class="icon">
             <a href="/counter">
                 <img src="{% static 'images/counter.svg' %}">
+                <p id="nav-text">Counter</p>
             </a>
         </div>
         <div class="icon">
             <a href="/projects">
                 <img src="{% static 'images/projects.svg' %}">
+                <p id="nav-text">Projects</p>
             </a>
         </div>
-        <div class="stash-icon">
+        <div class="icon">
             <a href="/stash">
                 <img src="{% static 'images/stashactive.svg' %}">
+                <p id="nav-text">Stash</p>
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
                 <img src="{% static 'images/tools.svg' %}">
+                <p id="nav-text">Tools</p>
             </a>
         </div>
-
+        <div class="icon" id="settings-desktop">
+            <a href="/settings">
+                <img src="{% static 'images/settings.svg' %}">
+                <p id="nav-text">Settings</p>
+            </a>
+        </div>
     </div>
+
 </div>
 <script src="{% static 'js/stash.js' %}"></script>
 {% endblock %}

@@ -52,32 +52,42 @@
 
 
     <div class="navbar">
-        <div class="icon">
+        <div class="home-icon">
             <a href="/home">
-                <img src="{% static 'images/home.svg' %}">
+                <img src="{% static 'images/homeactive.svg' %}">
+                <p id="nav-text">Home</p>
             </a>
         </div>
         <div class="icon">
-            <a href="/search">
+            <a href="/counter">
                 <img src="{% static 'images/counter.svg' %}">
+                <p id="nav-text">Counter</p>
             </a>
         </div>
         <div class="icon">
             <a href="/projects">
                 <img src="{% static 'images/projects.svg' %}">
+                <p id="nav-text">Projects</p>
             </a>
         </div>
         <div class="icon">
             <a href="/stash">
                 <img src="{% static 'images/stash.svg' %}">
+                <p id="nav-text">Stash</p>
             </a>
         </div>
         <div class="icon">
             <a href="/tools">
                 <img src="{% static 'images/tools.svg' %}">
+                <p id="nav-text">Tools</p>
             </a>
         </div>
-
+        <div class="icon" id="settings-desktop">
+            <a href="/settings">
+                <img src="{% static 'images/settings.svg' %}">
+                <p id="nav-text">Settings</p>
+            </a>
+        </div>
     </div>
 </div>
 <script src="{% static 'js/settings.js' %}"></script>

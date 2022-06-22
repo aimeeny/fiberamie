@@ -14,7 +14,7 @@ from pathlib import Path
 from rest_framework import authtoken
 import environ
 import os
-import dj_database_url
+# import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -102,7 +102,7 @@ DATABASES = {
         'USER': env('DATABASE_USER'),
     }
 }
-DATABASES['default'] = dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ( 

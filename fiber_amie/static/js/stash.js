@@ -39,7 +39,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: `http://127.0.0.1:8000/yarns/?search=${this.search}`,
+                url: `/yarns/?search=${this.search}`,
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -56,7 +56,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: 'http://127.0.0.1:8000/yarns/',
+                url: '/yarns/',
                 data: {
                     name: this.name,
                     fiber_type: this.fiber_type,
@@ -72,7 +72,7 @@ const App = {
             
         },
         deleteYarn (yarn) {
-            axios.delete(`http://127.0.0.1:8000/yarns/${yarn.id}/`, {
+            axios.delete(`/yarns/${yarn.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
                         password: 'password'
@@ -90,7 +90,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/users/',
+                url: '/users/',
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -114,7 +114,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${yarn.id}/`,
+                url: `/yarns/${yarn.id}/`,
                 data: {
                     name: this.name,
                 }
@@ -125,7 +125,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     colorway: this.yarn.colorway,
                 }
@@ -138,7 +138,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     fiber_type: this.yarn.fiber_type,
                 }
@@ -151,7 +151,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     skeins: this.yarn.skeins,
                 }
@@ -164,7 +164,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     yardage: this.yarn.yardage,
                 }
@@ -177,7 +177,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     weight: this.yarn.weight,
                 }
@@ -190,7 +190,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/yarns/${this.yarn.id}/`,
+                url: `/yarns/${this.yarn.id}/`,
                 data: {
                     notes: this.yarn.notes,
                 }

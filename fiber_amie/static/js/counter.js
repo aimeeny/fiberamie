@@ -22,7 +22,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/counters/${this.counter.id}/`,
+                url: `/counters/${this.counter.id}/`,
                 data: {
                     count: this.counter.count,
                 }
@@ -34,7 +34,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/counters/${this.counter.id}/`,
+                url: `/counters/${this.counter.id}/`,
                 data: {
                     count: this.counter.count,
                 }
@@ -46,7 +46,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/counters/${this.counter.id}/`,
+                url: `/counters/${this.counter.id}/`,
                 data: {
                     count: 0,
                 }
@@ -57,7 +57,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: 'http://127.0.0.1:8000/counters/',
+                url: '/counters/',
                 auth: {
                     username: 'username',
                     password: 'password'
@@ -71,7 +71,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: 'http://127.0.0.1:8000/counters/',
+                url: '/counters/',
                 data: {
                     name: this.name,
                     count: this.count
@@ -84,7 +84,7 @@ const App = {
         },
         deleteCounter (counter) {
             counter = this.counter
-            axios.delete(`http://127.0.0.1:8000/counters/${this.counter.id}/`, {
+            axios.delete(`/counters/${this.counter.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
                         password: 'password'

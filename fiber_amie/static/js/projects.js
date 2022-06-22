@@ -55,7 +55,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: 'http://127.0.0.1:8000/projects_drf/',
+                url: '/projects_drf/',
                 data: {
                     pattern_name: this.pattern_name,
                     designer: this.designer, 
@@ -73,7 +73,7 @@ const App = {
             console.log(res.data) 
         },
         deleteProject (project) {
-            axios.delete(`http://127.0.0.1:8000/projects_drf/${project.id}/`, {
+            axios.delete(`/projects_drf/${project.id}/`, {
                 headers: {'X-CSRFToken': this.csrf_token },
                 auth: { username: 'username',
                         password: 'password'
@@ -100,7 +100,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     pattern_name: this.project.pattern_name,
                 }
@@ -113,7 +113,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     designer: this.project.designer,
                 }
@@ -126,7 +126,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     needles: this.project.needles,
                 }
@@ -139,7 +139,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     hook: this.project.hook,
                 }
@@ -152,7 +152,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     gauge: this.project.gauge,
                 }
@@ -165,7 +165,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     yarn: this.project.yarn,
                 }
@@ -178,7 +178,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     colorway: this.project.colorway,
                 }
@@ -191,7 +191,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     total_yardage: this.project.total_yardage,
                 }
@@ -204,7 +204,7 @@ const App = {
             axios({
                 method: 'patch',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: `http://127.0.0.1:8000/projects_drf/${this.project.id}/`,
+                url: `/projects_drf/${this.project.id}/`,
                 data: {
                     notes: this.project.notes,
                 }

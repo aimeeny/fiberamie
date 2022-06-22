@@ -128,7 +128,8 @@
  /* BIG SCREENS ------------------------- */
 @media screen and (min-width: 768px) {
     body {
-        max-width: 80rem;
+        max-width: 50rem;
+        /* width: 40rem; */
         margin: auto;        
         background-image: linear-gradient(#f4e2ea, #b299a4);
         background-attachment: fixed;
@@ -146,16 +147,9 @@
         font-weight: 800;
     }
     .topnav {
-        /* position: fixed; */
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        
-        /* margin-bottom: 2rem;
-        padding: 0;
-        left: 0;
-        top: 0; */
-        /* z-index: 200; */
     }
     .topnav img {
         height: 2.5rem;
@@ -164,9 +158,10 @@
     /* NAV BAR  */
     .navbar {
         position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 60rem;
         z-index: 200;
         height: 6rem;
         display: flex;
@@ -178,7 +173,6 @@
     .icon {
         display: flex; 
         flex-direction: column;
-        /* justify-content: center; */
     }
     #nav-text {
         margin-top: -.8rem;
@@ -186,8 +180,6 @@
         text-align: center;
         font-family: 'Playfair Display', serif;
         font-weight: 600;
-        font-style: italic;
-        transition: .5s;
     }
     a {
         text-decoration: none;
@@ -198,7 +190,8 @@
         font-weight: 600;
         text-decoration: none;
         color: #896283;
-        background: #896283;
+        font-style: italic;
+        transition: .5s;
     }
     p {
         font-family: 'Noto Sans', sans-serif;
@@ -217,5 +210,8 @@
     }
     .home-body {
         margin-top: 6rem;
+    }
+    #settings-desktop {
+        display: revert;
     }
 }
