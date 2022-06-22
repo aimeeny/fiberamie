@@ -184,6 +184,8 @@
     a {
         text-decoration: none;
         color: #383838;
+        display: flex;
+        flex-direction: column;
     }
     a:hover {
         font-family: 'Playfair Display', serif;
@@ -204,6 +206,7 @@
     img {
         height: 4rem;
         width: 4rem;
+        align-self: center;
     }
     #settings-mobile, #mini-logo {
         display: none;

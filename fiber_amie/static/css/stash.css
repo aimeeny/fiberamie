@@ -119,18 +119,18 @@ img {
     min-width: 20%;
     max-width: 20%;
 }
-.stash p {
+p {
     font-family: 'Noto Sans', sans-serif;
     font-size: .9rem;
     /* padding-top: 1rem; */
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.stash h4 {
+h4 {
     font-family: 'Noto Sans', sans-serif;
-    
+    font-size: .9rem;
 }
-.stash .button {
+.button {
     /* margin-left: 4rem;
     margin-right: 4rem;  */
     margin: auto;
@@ -147,7 +147,7 @@ img {
     color: #383838;
     font-weight: 500;
 }
-.stash .button:hover {
+.button:hover {
     background: #fbebf2;
 }
 #stash-img {
@@ -252,6 +252,7 @@ img {
     .search {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
     }
 }
@@ -269,7 +270,7 @@ img {
         padding-top: 7rem;
     }
     h1 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Bree', serif;
         font-size: 6rem;
         color: #896283;
         text-shadow: 1px 1px #383838;
@@ -304,10 +305,7 @@ img {
         background-color: #F4E2EA;
         border-bottom: 1px solid #fff;
     }
-    .icon {
-        display: flex; 
-        flex-direction: column;
-    }
+    
     #nav-text {
         margin-top: -.8rem;
         font-size: 1.5rem;
@@ -318,6 +316,8 @@ img {
     a {
         text-decoration: none;
         color: #383838;
+        display: flex;
+        flex-direction: column;
     }
     a:hover {
         font-family: 'Playfair Display', serif;
@@ -330,14 +330,15 @@ img {
     p {
         font-family: 'Noto Sans', sans-serif;
         font-size: 1.5rem; 
-        
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
+        font-size: 1rem;
     }
     img {
         height: 4rem;
         width: 4rem;
+        align-self: center;
     }
     #settings-mobile, #mini-logo {
         display: none;

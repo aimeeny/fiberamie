@@ -59,10 +59,11 @@
 
 
     <!-- PROJECT LIST  -->
-    <h4><i>Your projects</i></h4>
+    
 
     <!-- search  -->
     <div class="search">
+        <h4><i>Your projects</i></h4>
         <form @submit.prevent="submitSearch">
             <input type="text" v-model="search">
             <button class="search-button" @click="submitSearch">Search</button>

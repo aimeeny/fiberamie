@@ -91,28 +91,6 @@
     .modal input {
         margin-bottom: .5rem;
     }
-        /* SETTINGS MODAL  */
-    .menu-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 98;
-    }
-    .form-modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 99;
-        width: 90%;
-        background-color: #fff;
-        border-radius: 15px;
-        padding: 1rem;
-        font-family: 'Noto Sans', sans-serif;
-        border: 2px solid #896283;
-    }
     /* SETTINGS MODAL  */
     .menu-overlay {
         position: absolute;
@@ -179,6 +157,7 @@
     }
     td {
         background: #f4e2ea;
+        text-align: center;
     }
     .table {
         display: flex;
@@ -220,7 +199,7 @@
         padding-top: 7rem;
     }
     h1 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Bree', serif;
         font-size: 6rem;
         color: #896283;
         text-shadow: 1px 1px #383838;
@@ -269,6 +248,8 @@
     a {
         text-decoration: none;
         color: #383838;
+        display: flex;
+        flex-direction: column;
     }
     a:hover {
         font-family: 'Playfair Display', serif;
@@ -281,14 +262,15 @@
     p {
         font-family: 'Noto Sans', sans-serif;
         font-size: 1.5rem; 
-        
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
+        font-size: 1rem;
     }
     img {
         height: 4rem;
         width: 4rem;
+        align-self: center;
     }
     #settings-mobile, #mini-logo {
         display: none;

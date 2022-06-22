@@ -68,8 +68,10 @@ const App = {
                     image: this.image,
                 }
             }).then(res => this.getStash())
-            .catch(error => console.log(error))
-            
+            .catch(error => {
+                console.log(error)
+                this.getStash()
+            })
         },
         deleteYarn (yarn) {
             axios.delete(`/yarns/${yarn.id}/`, {
