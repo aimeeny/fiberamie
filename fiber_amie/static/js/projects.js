@@ -38,7 +38,7 @@ const App = {
             axios({
                 method: 'get',
                 headers: { Accept: 'application/json'},
-                url: `http://127.0.0.1:8000/projects_drf/?search=${this.search}`,
+                url: `/projects_drf/?search=${this.search}`,
                 auth: {
                     username: 'username',
                     password: 'password'
