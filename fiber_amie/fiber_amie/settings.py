@@ -125,7 +125,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'), 
+    'CLOUD_NAME': 'dhty8fm4c', 
     'API_KEY': env('API_KEY'),
     'API_SECRET': env('API_SECRET'),
 }
