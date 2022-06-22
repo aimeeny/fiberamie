@@ -162,11 +162,11 @@
     }
     p {
         font-family: 'Noto Sans', sans-serif;
-        font-size: 1.5rem; 
-        
+        font-size: .9rem; 
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
+        font-size: 1.3rem;
     }
     img {
         height: 4rem;
@@ -178,5 +178,11 @@
     }
     #settings-desktop {
         display: revert;
+    }
+    #logout {
+        margin: auto;
+        text-align: center;
+        font-size: 2rem;
+        font-family: 'Playfair Display', serif;
     }
 }

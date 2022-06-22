@@ -234,11 +234,11 @@
     }
     p {
         font-family: 'Noto Sans', sans-serif;
-        font-size: 1.5rem; 
-        
+        font-size: .9rem; 
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
+        font-size: 1.3rem;
     }
     img {
         height: 4rem;
@@ -251,7 +251,23 @@
     #settings-desktop {
         display: revert;
     }
+    .footer {
+        text-align: center;
+        padding: 2rem;
+    }
+    .counter-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .minus, .reset, .delete {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 600;
+        color: #383838;
+        font-size: 1.6rem;
+    }
+
+
+
 }
-
-
-

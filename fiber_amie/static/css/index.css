@@ -48,10 +48,6 @@
         text-decoration: none;
         transition-duration: .4s;
     }
-    /* .landing > a:hover {
-        background-color: #644760;
-        color: #fff;
-    } */
     #logo {
         width: 100%;
         height: 100%;
@@ -110,7 +106,7 @@
     }
 
     /* LOG IN  */
-    .login h1 {
+    h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         color: #896283;
@@ -129,11 +125,11 @@
         margin-left: auto;
 
     }
-    .login label {
+    label {
         font-family: 'Noto Sans', sans-serif;
         margin-top: 2rem;
     }
-    .login button {
+    .button {
         background-color: #896283;
         color: #fff;
         padding-right: 2rem;
@@ -151,6 +147,23 @@
         text-decoration: none;
         transition-duration: .4s;
     }
- 
- 
+    .button:hover {
+        background-color: #7a5675;
+    }
+    form {
+        text-align: center;
+    }
+}
+
+
+
+/* BIG SCREENS ------------------------- */
+@media screen and (min-width: 768px) {
+    #logo {
+        width: 60%;
+        height: 60%;
+        margin-top: -8rem;
+        margin-bottom: -6rem;
+    }
+
 }

@@ -21,6 +21,7 @@
     <div class="form-modal" v-show="showSignUp">
         <form method="POST" action="{% url 'app_users:sign-up' %}">
             {% csrf_token %}
+            <h1>sign up</h1>
             <!-- {{ sign_up_form|crispy }} -->
             <label>First name: </label><br>
             {{ sign_up_form.first_name }}<br>

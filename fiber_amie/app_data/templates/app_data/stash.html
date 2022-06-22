@@ -73,7 +73,6 @@
 
     <div class="yarn-list">
         <div class="yarn-card" v-for="yarn in yarns">
-
             <div class="yarn-image">
                 <img class="cover" id="stash-img" :src="[[ yarn.image ]]"
                     @click="getYarnDetail(yarn); showDetails = true"><br>
@@ -223,6 +222,12 @@
                 <img src="{% static 'images/settings.svg' %}">
                 <p id="nav-text">Settings</p>
             </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-contents">
+            <p>FiberAmie &copy; 2022</p>
         </div>
     </div>
     {% endif %}

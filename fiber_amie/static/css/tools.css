@@ -261,11 +261,11 @@
     }
     p {
         font-family: 'Noto Sans', sans-serif;
-        font-size: 1.5rem; 
+        font-size: .9rem; 
     }
     h4 {
         font-family: 'Noto Sans', sans-serif;
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     img {
         height: 4rem;
@@ -281,5 +281,9 @@
     .button {
         font-size: 1.5rem;
         
+    }
+    .footer {
+        text-align: center;
+        padding: 2rem;
     }
 }
