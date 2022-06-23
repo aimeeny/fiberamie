@@ -11,6 +11,9 @@
     .tools {
         margin-bottom: 5rem;
     }
+    .tools-icon {
+        background: #dfc8d2;
+    }
     h1 {
         font-family: 'Berkshire Swash', cursive;
         font-size: 3rem;

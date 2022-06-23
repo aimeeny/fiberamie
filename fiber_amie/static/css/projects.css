@@ -445,6 +445,9 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    .projects-icon {
+        background: #dfc8d2;
+    }
     .project-card {
         display: flex;
         flex-direction: row;

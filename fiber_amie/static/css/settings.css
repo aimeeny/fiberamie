@@ -140,6 +140,9 @@
         display: flex; 
         flex-direction: column;
     }
+    .settings-icon {
+        background: #dfc8d2;
+    }
     #nav-text {
         margin-top: -.8rem;
         font-size: 1.5rem;

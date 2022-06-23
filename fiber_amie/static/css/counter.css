@@ -10,6 +10,9 @@
     .counter {
         margin-bottom: 5rem;
     }
+    .counter-icon {
+        background: #dfc8d2;
+    }
     h1 {
         font-family: 'Berkshire Swash', cursive;
         font-size: 3rem;
