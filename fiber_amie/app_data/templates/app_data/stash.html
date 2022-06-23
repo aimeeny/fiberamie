@@ -88,7 +88,7 @@
         <!-- DETAILS MODAL  -->
         <div class="yarn-modal" v-show="yarn.showDetails">
             <div class="stash-overflow">
-                <button class="button" @click="closeDetails">
+                <button class="button" id="back-button" @click="closeDetails">
                     Back
                 </button>
                 <div v-if="yarn.image">
@@ -104,7 +104,7 @@
                     <textarea v-model="yarn.name">[[ yarn.name ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveName(yarn)">Save</span>
                 </button>
 
@@ -116,7 +116,7 @@
                     <textarea v-model="yarn.colorway">[[ yarn.colorway ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveColorway(yarn)">Save</span>
                 </button>
 
@@ -128,7 +128,7 @@
                     <textarea v-model="yarn.fiber_type">[[ yarn.fiber_type ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveFiberType(yarn)">Save</span>
                 </button>
 
@@ -140,7 +140,7 @@
                     <textarea v-model="yarn.skeins">[[ yarn.skeins ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveSkeins(yarn)">Save</span>
                 </button>
 
@@ -152,7 +152,7 @@
                     <textarea v-model="yarn.yardage">[[ yarn.yardage ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveYardage(yarn)">Save</span>
                 </button>
 
@@ -164,7 +164,7 @@
                     <textarea v-model="yarn.yarn_weight">[[ yarn.yarn_weight ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveYarnWeight(yarn)">Save</span>
                 </button>
 
@@ -176,7 +176,7 @@
                     <textarea v-model="yarn.notes">[[ yarn.notes ]]</textarea>
                 </div>
                 <button @click="yarn, 'edit', !yarn.edit">
-                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">Edit</span>
+                    <span v-if="!yarn.edit" @click="yarn.edit = !yarn.edit">&#9998;</span>
                     <span v-if="yarn.edit" @click="saveNotes(yarn)">Save</span>
                 </button>
 
@@ -187,7 +187,7 @@
 
     <!-- BOTTOM NAV  -->
     <div class="navbar">
-        <div class="home-icon">
+        <div class="icon">
             <a href="/home">
                 <img src="{% static 'images/home.svg' %}">
                 <p id="nav-text">Home</p>
@@ -205,7 +205,7 @@
                 <p id="nav-text">Projects</p>
             </a>
         </div>
-        <div class="icon">
+        <div class="stash-icon">
             <a href="/stash">
                 <img src="{% static 'images/stashactive.svg' %}">
                 <p id="nav-text">Stash</p>

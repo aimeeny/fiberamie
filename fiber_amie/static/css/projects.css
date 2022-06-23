@@ -45,7 +45,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
         background-color: #F4E2EA;
         border-top: 1px solid #fff;
         /* overflow: none; */
@@ -266,7 +266,7 @@
         color: #896283;
         text-shadow: 1px 1px #383838;
         margin-bottom: .25rem;
-        margin-top: -.5rem;
+        /* margin-top: -.5rem; */
         padding-bottom: 1rem;
         text-align: center;
         font-weight: 800;
@@ -283,15 +283,16 @@
     }
     /* NAV BAR  */
     .navbar {
-        position: absolute;
-        top: 5%;
+        position: fixed;
+        top: 0%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        margin-left: -30rem;
         max-width: 60rem;
         z-index: 200;
         height: 6rem;
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-around;
         background-color: #F4E2EA;
         border-bottom: 1px solid #fff;
