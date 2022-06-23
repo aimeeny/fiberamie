@@ -46,6 +46,7 @@
     <div class="form-modal" v-show="showLogIn">
         <div class="login-form-container">
             <form method="POST" action="{% url 'app_users:log-in' %}">
+                <h1>log in</h1>
                 {% csrf_token %}
                 <div class="login-form">
                     <label>Username:</label><br>

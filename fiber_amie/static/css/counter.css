@@ -11,7 +11,7 @@
         margin-bottom: 5rem;
     }
     h1 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Berkshire Swash', cursive;
         font-size: 3rem;
         color: #896283;
         text-shadow: 1px 1px #383838;
@@ -161,6 +161,8 @@
     }
 }
 
+
+
 /* BIG SCREENS ------------------------- */
 @media screen and (min-width: 768px) {
     body {
@@ -172,7 +174,7 @@
         padding-top: 7rem;
     }
     h1 {
-        font-family: 'Bree', serif;
+        font-family: 'Berkshire Swash', cursive;
         font-size: 6rem;
         color: #896283;
         text-shadow: 1px 1px #383838;

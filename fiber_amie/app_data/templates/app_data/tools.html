@@ -31,14 +31,14 @@
         <div class="form-modal" v-show="showModal">
             <form @submit.prevent="addNeedles">
                 {% csrf_token %}
-                <label for="size">Needle size (US)</label>
+                <label for="size">Needle size (US)</label><br>
                 <input v-model="size" type="size" id="size"><br>
-                <label for="length">Needle length (inches)</label>
+                <label for="length">Needle length (inches)</label><br>
                 <input v-model="length" type="length" id="length"><br>
-                <label for="brand">Brand</label>
+                <label for="brand">Brand</label><br>
                 <input v-model="brand" type="brand" id="brand"><br>
             </form>
-            <button type="submit" class="button" @click="showModal = false; addNeedles()">
+            <button type="submit" class="form-button" @click="showModal = false; addNeedles()">
                 Submit
             </button>
         </div>
@@ -50,12 +50,12 @@
         <div class="form-modal" v-show="showModal2">
             <form @submit.prevent="addHooks">
                 {% csrf_token %}
-                <label for="size">Hook size (mm)</label>
+                <label for="size">Hook size (mm)</label><br>
                 <input v-model="size" type="size" id="size"><br>
-                <label for="brand">Brand</label>
+                <label for="brand">Brand</label><br>
                 <input v-model="brand" type="brand" id="brand"><br>
             </form>
-            <button type="submit" class="button" @click="showModal2 = false; addHooks()">
+            <button type="submit" class="form-button" @click="showModal2 = false; addHooks()">
                 Submit
             </button>
         </div>

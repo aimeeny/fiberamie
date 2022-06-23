@@ -59,7 +59,7 @@
 
 
     <!-- PROJECT LIST  -->
-    
+
 
     <!-- search  -->
     <div class="search">
@@ -98,120 +98,136 @@
                         <img class="cover" id="project-detail-img" :src="[[ project.image ]]">
                     </div>
                     <p id="p-details" v-else>Add an image!</p>
-
+                </div>
+                <div class="info-blocks">
                     <!-- pattern name -->
-                    <h4>Pattern Name</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details">[[ project.pattern_name ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.pattern_name">[[ project.pattern_name ]]</textarea>
+                    <div class="info-block">
+                        <h4>Pattern Name</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details">[[ project.pattern_name ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.pattern_name">[[ project.pattern_name ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveName(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveName(project)">Save</span>
-                    </button>
 
                     <!-- designer  -->
-                    <h4>Designer</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p  id="p-details" v-if="project.designer">[[ project.designer ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.designer">[[ project.designer ]]</textarea>
+                    <div class="info-block">
+                        <h4>Designer</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.designer">[[ project.designer ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.designer">[[ project.designer ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveDesigner(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveDesigner(project)">Save</span>
-                    </button>
 
                     <!-- needles & hook  -->
-                    <h4>Needles</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p  id="p-details" v-if="project.needles">US [[ project.needles ]] needles</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.needles">[[ project.needles ]]</textarea>
-                    </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveNeedles(project)">Save</span>
-                    </button>
+                    <div class="info-block">
+                        <h4>Needles</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.needles">US [[ project.needles ]] needles</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.needles">[[ project.needles ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveNeedles(project)">Save</span>
+                        </button>
 
-                    <h4>Hook</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p  id="p-details" v-if="project.hook">[[ project.hook ]] mm hook</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.hook">[[ project.hook ]]</textarea>
+                        <h4>Hook</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.hook">[[ project.hook ]] mm hook</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.hook">[[ project.hook ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveHook(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveHook(project)">Save</span>
-                    </button>
 
                     <!-- gauge  -->
-                    <h4>Gauge</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details" v-if="project.gauge">[[ project.gauge ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.gauge">[[ project.gauge ]]</textarea>
+                    <div class="info-block">
+                        <h4>Gauge</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.gauge">[[ project.gauge ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.gauge">[[ project.gauge ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveGauge(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveGauge(project)">Save</span>
-                    </button>
 
                     <!-- yarn info  -->
-                    <h4>Yarn</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details" v-if="project.yarn">[[ project.yarn ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.yarn">[[ project.yarn ]]</textarea>
+                    <div class="info-block">
+                        <h4>Yarn</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.yarn">[[ project.yarn ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.yarn">[[ project.yarn ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveYarn(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveYarn(project)">Save</span>
-                    </button>
 
-                    <h4>Colorway(s)</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details" v-if="project.colorway">[[ project.colorway ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.colorway">[[ project.colorway ]]</textarea>
+                    <div class="info-block">
+                        <h4>Colorway(s)</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.colorway">[[ project.colorway ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.colorway">[[ project.colorway ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveColorway(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveColorway(project)">Save</span>
-                    </button>
 
-                    <h4>Yardage</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details" v-if="project.total_yardage">[[ project.total_yardage ]] yards</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.total_yardage">[[ project.total_yardage ]]</textarea>
+                    <div class="info-block">
+                        <h4>Yardage</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.total_yardage">[[ project.total_yardage ]] yards</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.total_yardage">[[ project.total_yardage ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveYardage(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveYardage(project)">Save</span>
-                    </button>
 
-                    <h4>Notes</h4>
-                    <span v-if="!project.edit" @click="project.edit = !project.edit">
-                        <p id="p-details" v-if="project.notes">[[ project.notes ]]</p>
-                    </span>
-                    <div v-if="project.edit">
-                        <textarea v-model="project.notes">[[ project.notes ]]</textarea>
+                    <div class="info-block">
+                        <h4>Notes</h4>
+                        <span v-if="!project.edit" @click="project.edit = !project.edit">
+                            <p id="p-details" v-if="project.notes">[[ project.notes ]]</p>
+                        </span>
+                        <div v-if="project.edit">
+                            <textarea v-model="project.notes">[[ project.notes ]]</textarea>
+                        </div>
+                        <button class="edit" @click="project, 'edit', !project.edit">
+                            <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
+                            <span v-if="project.edit" @click="saveNotes(project)">Save</span>
+                        </button>
                     </div>
-                    <button @click="project, 'edit', !project.edit">
-                        <span id="edit" v-if="!project.edit" @click="project.edit = !project.edit">&#9998;</span>
-                        <span v-if="project.edit" @click="saveNotes(project)">Save</span>
-                    </button>
-                    </p>
                 </div>
             </div>
         </div>
