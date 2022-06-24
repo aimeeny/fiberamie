@@ -31,9 +31,10 @@
             {{ sign_up_form.username }}<br>
             <label>Email: </label><br>
             {{ sign_up_form.email }}<br>
-            <label type="password">Password: </label><br>
-            <input type="password">{{ sign_up_form.password }}<br>
-            <br>
+            <label>Password: </label><br>
+            {{ sign_up_form.password1 }}<br>
+            <label>Confirm password: </label><br>
+            {{ sign_up_form.password2 }}<br>
             <button type="submit" @click="showSignUp = false">Sign Up</button>
         </form>
     </div>

@@ -26,6 +26,8 @@ def settings(request):
 def sign_up_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
+        print(form.errors)
+        # print(form, request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user) # logs user in automatically if sign up is successful
