@@ -51,8 +51,8 @@ const App = {
         },
         addYarn () {
             // console.log(this.image)
-            // const form_data = new FormData() 
-            // form_data.append('image', this.image, this.image.name)
+            const form_data = new FormData() 
+            form_data.append('image', this.image, this.image.name)
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },

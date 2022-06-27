@@ -49,7 +49,7 @@ const App = {
             }).catch(error => console.log(error.message))
         },
         addProject () {
-            console.log(this.image)
+            // console.log(this.image)
             const form_data = new FormData() 
             form_data.append('image', this.image, this.image.name)
             axios({
