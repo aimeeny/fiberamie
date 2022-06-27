@@ -56,7 +56,7 @@ const App = {
             axios({
                 method: 'post',
                 headers: { Accept: 'application/json', 'X-CSRFToken': this.csrf_token, 'Content-Type': 'multipart/form-data' },
-                url: '/yarns/',
+                url: 'https://fiberamie.herokuapp.com/yarns/',
                 data: {
                     name: this.name,
                     fiber_type: this.fiber_type,
