@@ -7,7 +7,7 @@
 - Project tracker
 - Row counter
 
-There is currently a gap in the fiber app/website market where no mobile-friendly, accesible, English-language knitting/crochet companion app exists. This application is intended to fill that gap. 
+There is currently a gap in the fiber app/website market where no mobile-friendly, accessible, English-language knitting/crochet companion app exists. This application is intended to fill that gap. 
 
 ## Features
 
